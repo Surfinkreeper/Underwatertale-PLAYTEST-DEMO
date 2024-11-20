@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://33o1kj44j7be"]
+
+[ext_resource type="Shader" path="res://prototyping/FishMovement/outline.gdshader" id="1_dmvve"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_dmvve")
+shader_parameter/outline_color = Color(0.217102, 0.0542851, 0, 1)
+shader_parameter/outline_width = 5.0
+shader_parameter/time_scale = 2.0
+shader_parameter/side_to_side = 0.1
+shader_parameter/pivot = 0.5
+shader_parameter/wave = 0.1
+shader_parameter/twist = 0.1

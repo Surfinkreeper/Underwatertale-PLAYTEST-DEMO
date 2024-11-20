@@ -1,0 +1,56 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+"_translation_id": "",
+"color": Color(1, 1, 1, 1),
+"custom_info": {
+"sound_mood_default": "",
+"sound_moods": {},
+"style": "dialogue_test"
+},
+"default_portrait": "neutral",
+"description": "",
+"display_name": "Honey",
+"mirror": false,
+"nicknames": [""],
+"offset": Vector2(0, 0),
+"portraits": {
+"ecstatic": {
+"export_overrides": {
+"image": "\"res://Dialogue/characters/art/puffmom/MomPortrait_estatic.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"neutral": {
+"export_overrides": {
+"image": "\"res://Dialogue/characters/art/puffmom/MomPortrait_neutral.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"relief": {
+"export_overrides": {
+"image": "\"res://Dialogue/characters/art/puffmom/MomPortrait_relief.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"surprised": {
+"export_overrides": {
+"image": "\"res://Dialogue/characters/art/puffmom/MomPortrait_surprised.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+}
+},
+"scale": 1.0
+}

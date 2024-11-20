@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8uw324u2smji"]
+
+[ext_resource type="PackedScene" uid="uid://d0mh78jignjf" path="res://prototyping/resources/3D Models/erm fish3.0.glb" id="1_uwojp"]
+[ext_resource type="Script" path="res://prototyping/new_fish/fish.gd" id="2_pucsq"]
+
+[node name="Fish_Model" instance=ExtResource("1_uwojp")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+script = ExtResource("2_pucsq")
+
+[node name="Armature" parent="." index="0"]
+transform = Transform3D(0.999999, 0.00146584, -0.000213395, -0.00146656, 0.999993, -0.00344755, 0.000208345, 0.00344786, 0.999994, 0, 0, 0)
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/0/rotation = Quaternion(0.000474975, 0.000474975, 0.000474975, 1.00048)
+bones/1/position = Vector3(0, 0.575446, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, -20)
+
+[node name="Camera3D" type="Camera3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, -0.224951, 0.97437, 0, -0.97437, -0.224951, 0, 14.5, -7)

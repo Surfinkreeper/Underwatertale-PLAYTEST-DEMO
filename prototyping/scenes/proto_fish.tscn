@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://cottl4ud32txp"]
+
+[ext_resource type="PackedScene" uid="uid://dfw1tbj8c3rqs" path="res://prototyping/scenes/proto_fishline.tscn" id="1_vpydn"]
+[ext_resource type="PackedScene" uid="uid://b0gggg72n5xwu" path="res://prototyping/scenes/proto_fin.tscn" id="2_7h2ef"]
+
+[node name="Fish" type="Node2D"]
+
+[node name="FinRightPectoral" parent="." instance=ExtResource("2_7h2ef")]
+scale = Vector2(1.4, 1.4)
+
+[node name="FinLeftPectoral" parent="." instance=ExtResource("2_7h2ef")]
+scale = Vector2(1.4, 1.4)
+
+[node name="FinRightTail" parent="." instance=ExtResource("2_7h2ef")]
+scale = Vector2(0.5, 0.5)
+
+[node name="FinLeftTail" parent="." instance=ExtResource("2_7h2ef")]
+scale = Vector2(0.5, 0.5)
+
+[node name="FishLine" parent="." node_paths=PackedStringArray("right_fin", "left_fin", "right_fin_tail", "left_fin_tail", "dorsal_fin") instance=ExtResource("1_vpydn")]
+default_color = Color(0.14902, 0.733333, 0.870588, 1)
+right_fin = NodePath("../FinRightPectoral")
+left_fin = NodePath("../FinLeftPectoral")
+right_fin_tail = NodePath("../FinRightTail")
+left_fin_tail = NodePath("../FinLeftTail")
+dorsal_fin = NodePath("../FinDorsal")
+look_speed = 4.0
+speed = 1000.0
+
+[node name="FinDorsal" parent="." instance=ExtResource("2_7h2ef")]
+scale = Vector2(0.5, 1.5)

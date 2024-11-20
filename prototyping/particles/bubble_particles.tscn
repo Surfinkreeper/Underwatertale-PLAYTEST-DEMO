@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://bb7xspdwjr3ow"]
+
+[sub_resource type="Curve" id="Curve_8jec2"]
+max_value = 0.1
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_cfxbr"]
+curve = SubResource("Curve_8jec2")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2q7km"]
+emission_shape = 3
+emission_box_extents = Vector3(30, 0, 30)
+gravity = Vector3(0, 1, 0)
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_cfxbr")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hgvmf"]
+transparency = 1
+albedo_color = Color(0.608682, 0.767913, 0.932031, 0.541176)
+emission_enabled = true
+emission = Color(0.607843, 0.768627, 0.933333, 1)
+emission_energy_multiplier = 0.5
+
+[sub_resource type="SphereMesh" id="SphereMesh_2lvcd"]
+material = SubResource("StandardMaterial3D_hgvmf")
+
+[node name="BubbleParticles" type="Node3D"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+amount = 100
+lifetime = 5.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_2q7km")
+draw_pass_1 = SubResource("SphereMesh_2lvcd")

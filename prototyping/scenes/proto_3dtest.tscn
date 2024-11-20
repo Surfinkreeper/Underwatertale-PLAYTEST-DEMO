@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bboju8bie1ixw"]
+
+[ext_resource type="PackedScene" uid="uid://cwdl3525u00tn" path="res://prototyping/art/proto_fish3d.glb" id="1_u1bhj"]
+[ext_resource type="PackedScene" path="res://prototyping/art/fish_i_think.glb" id="2_08vmx"]
+
+[node name="Fishtest" type="Node3D"]
+
+[node name="fishmode" parent="." instance=ExtResource("1_u1bhj")]
+
+[node name="fish_i_think" parent="." instance=ExtResource("2_08vmx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0162191, 0, 5.28055)

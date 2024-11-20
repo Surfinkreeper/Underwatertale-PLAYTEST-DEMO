@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://c02y60ps73lbw"]
+
+[ext_resource type="Script" path="res://prototyping/new_fish/proto_fish_movement.gd" id="1_7r0di"]
+[ext_resource type="Texture2D" uid="uid://j1t6ij003m3h" path="res://prototyping/art/IMG_1816.png" id="1_jvthp"]
+[ext_resource type="Shader" path="res://prototyping/src/shader/color_rect_pixelate.gdshader" id="1_xleel"]
+[ext_resource type="Curve" uid="uid://cqcilq5xcti1g" path="res://prototyping/src/misc/proto_fish_curve.tres" id="3_kkyom"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mw5wu"]
+shader = ExtResource("1_xleel")
+shader_parameter/quantize_size = 5.0
+shader_parameter/handle_scale = null
+shader_parameter/handle_subpixels = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ad6i0"]
+size = Vector2(181, 176)
+
+[node name="ProtoNewTest" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(576.5, 325.5)
+scale = Vector2(0.638333, 0.539167)
+texture = ExtResource("1_jvthp")
+
+[node name="PostProcessing" type="CanvasLayer" parent="."]
+
+[node name="ShaderApplication" type="ColorRect" parent="PostProcessing"]
+material = SubResource("ShaderMaterial_mw5wu")
+offset_right = 1151.0
+offset_bottom = 647.0
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+modulate = Color(1, 0.196078, 0, 1)
+position = Vector2(398, 298)
+motion_mode = 1
+script = ExtResource("1_7r0di")
+speed = 1000.0
+look_speed = 3.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_ad6i0")
+debug_color = Color(1, 1, 1, 0)
+
+[node name="Line2D" type="Line2D" parent="CharacterBody2D"]
+points = PackedVector2Array(0, 0, -30, 0, -60, 0, -90, 0, -120, 0, -150, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+width_curve = ExtResource("3_kkyom")
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true

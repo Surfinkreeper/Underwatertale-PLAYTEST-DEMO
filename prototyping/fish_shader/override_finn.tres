@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://b08bl8yymhjhn"]
+
+[ext_resource type="Shader" path="res://prototyping/FishMovement/wavy.gdshader" id="1_hnpyi"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_hnpyi")
+shader_parameter/time_scale = 2.0
+shader_parameter/side_to_side = 0.1
+shader_parameter/pivot = 0.5
+shader_parameter/wave = 0.1
+shader_parameter/twist = 0.1
+shader_parameter/custom_albedo = Color(1, 0.52549, 0.321569, 1)

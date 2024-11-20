@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bai2cqmxgiqkd"]
+
+[ext_resource type="Texture2D" uid="uid://bxsma5x2fy1xb" path="res://prototyping/art/Yellow Coral/Yellow6.PNG" id="1_g5som"]
+
+[node name="Yellow6" type="Sprite3D"]
+transform = Transform3D(0.17, 0, 0, 0, 0.17, 0, 0, 0, 0.17, 0, 0, 0)
+offset = Vector2(0, 1250)
+texture = ExtResource("1_g5som")

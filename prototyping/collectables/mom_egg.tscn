@@ -1,0 +1,62 @@
+[gd_scene load_steps=12 format=3 uid="uid://flbrlxpp0ejj"]
+
+[ext_resource type="Script" path="res://prototyping/collectables/mom_egg.gd" id="1_fytgq"]
+[ext_resource type="Texture2D" uid="uid://bc7ljn7jeeidn" path="res://prototyping/art/Red Coral/Untitled_Artwork 2.png" id="2_6w5kk"]
+[ext_resource type="AudioStream" uid="uid://wi1a757vfngi" path="res://prototyping/soundfx/get_item.wav" id="3_upa0m"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_dtl41"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3e0w7"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("2_6w5kk")
+billboard_mode = 2
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_tgc2j"]
+radius = 1.0
+
+[sub_resource type="Curve" id="Curve_41tp0"]
+max_value = 3.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.985075, 0.478851), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_obgvr"]
+curve = SubResource("Curve_41tp0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_um7c8"]
+emission_shape = 3
+emission_box_extents = Vector3(0.5, 1, 0.5)
+gravity = Vector3(0, 10, 0)
+scale_over_velocity_curve = SubResource("CurveTexture_obgvr")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ymlf8"]
+transparency = 1
+albedo_color = Color(0.701961, 1, 1, 0.576471)
+
+[sub_resource type="SphereMesh" id="SphereMesh_trg4d"]
+material = SubResource("StandardMaterial3D_ymlf8")
+radius = 0.3
+height = 0.6
+
+[node name="MomEgg" type="Area3D"]
+script = ExtResource("1_fytgq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("QuadMesh_dtl41")
+surface_material_override/0 = SubResource("StandardMaterial3D_3e0w7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_tgc2j")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 16
+one_shot = true
+explosiveness = 0.75
+fixed_fps = 24
+process_material = SubResource("ParticleProcessMaterial_um7c8")
+draw_pass_1 = SubResource("SphereMesh_trg4d")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_upa0m")
+volume_db = -15.0

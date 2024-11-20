@@ -1,0 +1,55 @@
+[gd_scene load_steps=9 format=3 uid="uid://cxsa40edyayh"]
+
+[ext_resource type="Script" path="res://prototyping/src/proto_test_scene.gd" id="1_yigx6"]
+[ext_resource type="Shader" path="res://prototyping/src/shader/proto_fish_pixelize.gdshader" id="2_f3qnf"]
+[ext_resource type="PackedScene" uid="uid://cottl4ud32txp" path="res://prototyping/scenes/proto_fish.tscn" id="3_mudcp"]
+[ext_resource type="Shader" path="res://prototyping/src/shader/proto_rect_pixelize.gdshader" id="4_uxh7p"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wa5xt"]
+shader = ExtResource("2_f3qnf")
+shader_parameter/amount = 128
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_do1fn"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8xrld"]
+shader = ExtResource("4_uxh7p")
+shader_parameter/size = Vector2(32, 28)
+shader_parameter/amount = 128
+
+[sub_resource type="Theme" id="Theme_bnx6p"]
+default_font_size = 60
+
+[node name="TestScene" type="Node2D"]
+script = ExtResource("1_yigx6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_wa5xt")
+position = Vector2(581, 315)
+texture = SubResource("ViewportTexture_do1fn")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(1152, 648)
+
+[node name="Fish" parent="SubViewport" instance=ExtResource("3_mudcp")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_8xrld")
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(28.84, 16.08)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(600, 0)
+offset_left = 1370.0
+offset_top = 751.0
+offset_right = 1570.0
+offset_bottom = 797.0
+theme = SubResource("Theme_bnx6p")
+text = "if you can see this...
+go no further!!"
+fit_content = true

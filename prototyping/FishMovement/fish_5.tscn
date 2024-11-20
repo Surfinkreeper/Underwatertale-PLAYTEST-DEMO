@@ -1,0 +1,165 @@
+[gd_scene load_steps=17 format=3 uid="uid://bfdithupn5lys"]
+
+[ext_resource type="PackedScene" uid="uid://i4j4ml2balkn" path="res://prototyping/resources/3D Models/swimming man.glb" id="1_0y1vn"]
+[ext_resource type="Script" path="res://prototyping/FishMovement/fish_5.gd" id="2_mtow4"]
+[ext_resource type="Shader" path="res://prototyping/FishMovement/outline.gdshader" id="3_pqol8"]
+[ext_resource type="Script" path="res://interactor.gd" id="4_6dguy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0ost3"]
+render_priority = 0
+shader = ExtResource("3_pqol8")
+shader_parameter/outline_color = null
+shader_parameter/outline_width = 5.0
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_swupj"]
+friction = 0.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_771q4"]
+radius = 1.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_vfbpw"]
+radius = 1.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_j425y"]
+radius = 0.9
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_uwo4v"]
+radius = 0.8
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_jktag"]
+radius = 0.65
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_s4ipu"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_c4pfq"]
+radius = 0.4
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_81sy8"]
+radius = 0.35
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_cmogc"]
+radius = 0.35
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_kgeh5"]
+radius = 0.4
+
+[node name="Fish5" instance=ExtResource("1_0y1vn")]
+script = ExtResource("2_mtow4")
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+bones/0/rotation = Quaternion(0.000474975, 0.000474975, 0.000474975, 1.00048)
+
+[node name="Roundcube" parent="Armature/Skeleton3D" index="0"]
+material_overlay = SubResource("ShaderMaterial_0ost3")
+
+[node name="Colliders" type="Node3D" parent="." index="1"]
+
+[node name="Head" type="RigidBody3D" parent="Colliders" index="0"]
+collision_layer = 6
+mass = 2.0
+physics_material_override = SubResource("PhysicsMaterial_swupj")
+gravity_scale = 0.0
+lock_rotation = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/Head" index="0"]
+shape = SubResource("CylinderShape3D_771q4")
+
+[node name="Interactor" type="Area3D" parent="Colliders/Head" index="1" node_paths=PackedStringArray("my_fish")]
+script = ExtResource("4_6dguy")
+my_fish = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/Head/Interactor" index="0"]
+shape = SubResource("SphereShape3D_vfbpw")
+
+[node name="1" type="RigidBody3D" parent="Colliders" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+collision_layer = 2
+mass = 2.25
+physics_material_override = SubResource("PhysicsMaterial_swupj")
+gravity_scale = 0.0
+lock_rotation = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/1" index="0"]
+shape = SubResource("CylinderShape3D_j425y")
+
+[node name="2" type="RigidBody3D" parent="Colliders" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+collision_layer = 6
+collision_mask = 5
+mass = 2.0
+physics_material_override = SubResource("PhysicsMaterial_swupj")
+gravity_scale = 0.0
+lock_rotation = true
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Colliders/2" index="0"]
+shape = SubResource("CylinderShape3D_uwo4v")
+
+[node name="3" type="RigidBody3D" parent="Colliders" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+collision_layer = 2
+mass = 1.75
+physics_material_override = SubResource("PhysicsMaterial_swupj")
+gravity_scale = 0.0
+lock_rotation = true
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Colliders/3" index="0"]
+shape = SubResource("CylinderShape3D_jktag")
+
+[node name="4" type="RigidBody3D" parent="Colliders" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+collision_layer = 6
+collision_mask = 5
+mass = 1.5
+physics_material_override = SubResource("PhysicsMaterial_swupj")
+gravity_scale = 0.0
+lock_rotation = true
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Colliders/4" index="0"]
+shape = SubResource("CylinderShape3D_s4ipu")
+
+[node name="5" type="RigidBody3D" parent="Colliders" index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.5)
+collision_layer = 2
+mass = 1.5
+physics_material_override = SubResource("PhysicsMaterial_swupj")
+gravity_scale = 0.0
+lock_rotation = true
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Colliders/5" index="0"]
+shape = SubResource("CylinderShape3D_c4pfq")
+
+[node name="6" type="RigidBody3D" parent="Colliders" index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+collision_layer = 6
+collision_mask = 5
+mass = 1.25
+physics_material_override = SubResource("PhysicsMaterial_swupj")
+gravity_scale = 0.0
+lock_rotation = true
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Colliders/6" index="0"]
+shape = SubResource("CylinderShape3D_81sy8")
+
+[node name="7" type="RigidBody3D" parent="Colliders" index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.5)
+collision_layer = 2
+mass = 1.25
+physics_material_override = SubResource("PhysicsMaterial_swupj")
+gravity_scale = 0.0
+lock_rotation = true
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="Colliders/7" index="0"]
+shape = SubResource("CylinderShape3D_cmogc")
+
+[node name="8" type="RigidBody3D" parent="Colliders" index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+collision_layer = 6
+collision_mask = 5
+mass = 0.75
+physics_material_override = SubResource("PhysicsMaterial_swupj")
+gravity_scale = 0.0
+lock_rotation = true
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="Colliders/8" index="0"]
+shape = SubResource("CylinderShape3D_kgeh5")

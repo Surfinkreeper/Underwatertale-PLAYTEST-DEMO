@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7vd3m626efy7"]
+
+[ext_resource type="Texture2D" uid="uid://tgwin2aa67ir" path="res://prototyping/art/Pink Coral/Pink1.PNG" id="1_s8f1o"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l2g1q"]
+size = Vector3(3.25, 14.007, 1)
+
+[node name="Pink1" type="Sprite3D"]
+transform = Transform3D(0.17, 0, 0, 0, 0.17, 0, 0, 0, 0.17, 0, 0, 0)
+offset = Vector2(0, 740)
+alpha_cut = 2
+texture = ExtResource("1_s8f1o")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.692696, 7.1025, 0)
+shape = SubResource("BoxShape3D_l2g1q")

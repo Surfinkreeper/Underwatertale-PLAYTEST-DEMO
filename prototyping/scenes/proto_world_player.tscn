@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://d320mdapwok4d"]
+
+[ext_resource type="Script" path="res://prototyping/src/proto_world_player.gd" id="1_6nroq"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ue7vr"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_8ehf7"]
+
+[node name="ProtoWorldPlayer" type="CharacterBody3D"]
+script = ExtResource("1_6nroq")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 5, 1)
+projection = 1
+size = 10.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_ue7vr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+mesh = SubResource("CapsuleMesh_8ehf7")
+skeleton = NodePath("../..")

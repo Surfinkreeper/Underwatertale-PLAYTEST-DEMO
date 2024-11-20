@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://ef53bilpevmy"]
+
+[ext_resource type="Texture2D" uid="uid://dvbm62qlyv7it" path="res://prototyping/art/Red Coral/Red4.png" id="1_xij1p"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pip10"]
+size = Vector3(0.34, 1.31, 0.21)
+
+[node name="Red4" type="Sprite3D"]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
+offset = Vector2(6.65, 117.22)
+texture = ExtResource("1_xij1p")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.63345, 0)
+shape = SubResource("BoxShape3D_pip10")

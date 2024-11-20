@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8uw324u2smji"]
+
+[ext_resource type="PackedScene" uid="uid://d0mh78jignjf" path="res://prototyping/resources/3D Models/erm fish3.0.glb" id="1_uwojp"]
+[ext_resource type="Script" path="res://prototyping/new_fish/fish.gd" id="2_pucsq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f64di"]
+
+[node name="Fish_Model" instance=ExtResource("1_uwojp")]
+script = ExtResource("2_pucsq")
+
+[node name="Armature" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.74317, 0, 0)
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+bones/0/rotation = Quaternion(0.000474975, 0.000474975, 0.000474975, 1.00048)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+shape = SubResource("BoxShape3D_f64di")

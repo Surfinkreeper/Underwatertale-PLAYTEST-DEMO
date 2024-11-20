@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://s2353o5fawxs"]
+
+[ext_resource type="Texture2D" uid="uid://cu86ewuyscp3h" path="res://prototyping/art/Yellow Coral/Yellow1.PNG" id="1_tmx1i"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_etayx"]
+size = Vector3(11.85, 6.64, 1)
+
+[node name="Yellow1" type="Sprite3D"]
+transform = Transform3D(0.17, 0, 0, 0, 0.17, 0, 0, 0, 0.17, 0, 0, 0)
+offset = Vector2(0, 150)
+texture = ExtResource("1_tmx1i")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6207, 2.9299, 0)
+shape = SubResource("BoxShape3D_etayx")

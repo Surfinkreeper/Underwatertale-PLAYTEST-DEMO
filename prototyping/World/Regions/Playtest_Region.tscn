@@ -1,0 +1,591 @@
+[gd_scene load_steps=52 format=3 uid="uid://rnrsduk2scma"]
+
+[ext_resource type="Script" path="res://prototyping/World/Region.gd" id="1_cxeo3"]
+[ext_resource type="MeshLibrary" uid="uid://2rylss4m7eg" path="res://prototyping/resources/Meshes/proto_mesh_lib.tres" id="2_0u4e0"]
+[ext_resource type="Shader" path="res://prototyping/resources/Shaders/underwater.gdshader" id="2_30jd0"]
+[ext_resource type="Shader" path="res://prototyping/FishMovement/pixel_shader.gdshader" id="2_q1808"]
+[ext_resource type="Texture2D" uid="uid://dbfh37v0av3y2" path="res://prototyping/resources/Shaders/underwater_noise.tres" id="4_wiq3l"]
+[ext_resource type="Texture2D" uid="uid://banx515qk1nak" path="res://prototyping/art/Playtest_Floor_Sand.png" id="5_io8ih"]
+[ext_resource type="Texture2D" uid="uid://crus0dgpmbjvg" path="res://prototyping/art/temp_overhang.png" id="6_f2ml1"]
+[ext_resource type="Texture2D" uid="uid://b5hl2qf01cyi3" path="res://prototyping/art/playtest roof UPDATED.PNG" id="7_k7gmb"]
+[ext_resource type="Script" path="res://npc.gd" id="9_c52lf"]
+[ext_resource type="PackedScene" uid="uid://bddkt2hk53mww" path="res://prototyping/World/Coral Scenes/red_1.tscn" id="10_28ebk"]
+[ext_resource type="Texture2D" uid="uid://b7bgjexgh7aqm" path="res://prototyping/art/Characters/wisemaseter-26.png" id="10_nx7uh"]
+[ext_resource type="PackedScene" uid="uid://26nm3x0si6u3" path="res://prototyping/World/Coral Scenes/pink_2.tscn" id="11_dvvvs"]
+[ext_resource type="PackedScene" uid="uid://dr2qjppmg42hm" path="res://prototyping/FishMovement/finn_1_1.tscn" id="11_um16m"]
+[ext_resource type="PackedScene" uid="uid://dsr1ge4g01nkp" path="res://prototyping/World/Coral Scenes/yellow_3.tscn" id="12_6p2t4"]
+[ext_resource type="PackedScene" uid="uid://c7vccyruwq26s" path="res://prototyping/World/Coral Scenes/blue_3.tscn" id="13_ggtw1"]
+[ext_resource type="PackedScene" uid="uid://ef53bilpevmy" path="res://prototyping/World/Coral Scenes/red_4.tscn" id="14_iob6g"]
+[ext_resource type="PackedScene" uid="uid://bitycejw81l5s" path="res://prototyping/World/Coral Scenes/pink_7.tscn" id="15_rj31g"]
+[ext_resource type="PackedScene" uid="uid://dvwmfvx54q3ra" path="res://prototyping/World/Coral Scenes/blue_2.tscn" id="16_tddtq"]
+[ext_resource type="PackedScene" uid="uid://do675l8mq23nt" path="res://prototyping/World/Coral Scenes/pink_3.tscn" id="17_074dt"]
+[ext_resource type="PackedScene" uid="uid://bql6vvvajrscw" path="res://prototyping/World/Coral Scenes/pink_6.tscn" id="18_6nwjh"]
+[ext_resource type="PackedScene" uid="uid://b7iundgphp88g" path="res://prototyping/World/Coral Scenes/blue_6.tscn" id="19_ng2vc"]
+[ext_resource type="PackedScene" uid="uid://w4l3wk0s3prx" path="res://prototyping/World/Coral Scenes/yellow_5.tscn" id="19_pxx7l"]
+[ext_resource type="PackedScene" uid="uid://dr6kc25u18ikx" path="res://prototyping/World/Coral Scenes/pink_8.tscn" id="20_2efuu"]
+[ext_resource type="PackedScene" uid="uid://dvv6o7c885qos" path="res://prototyping/World/Coral Scenes/yellow_7.tscn" id="20_3qk62"]
+[ext_resource type="PackedScene" uid="uid://qrcskg7m41hy" path="res://prototyping/World/Coral Scenes/blue_5.tscn" id="21_cr1ps"]
+[ext_resource type="PackedScene" uid="uid://s2353o5fawxs" path="res://prototyping/World/Coral Scenes/yellow_1.tscn" id="21_kkxar"]
+[ext_resource type="PackedScene" uid="uid://fc1ombf7fnns" path="res://prototyping/World/Coral Scenes/blue_4.tscn" id="22_1fl8d"]
+[ext_resource type="PackedScene" uid="uid://dleacnjnavja2" path="res://prototyping/World/Coral Scenes/red_5.tscn" id="22_hbo2j"]
+[ext_resource type="PackedScene" uid="uid://c7vd3m626efy7" path="res://prototyping/World/Coral Scenes/pink_1.tscn" id="23_ngxo1"]
+[ext_resource type="PackedScene" uid="uid://bsr8b1wqghqi" path="res://prototyping/World/Coral Scenes/yellow_4.tscn" id="24_dfto0"]
+[ext_resource type="PackedScene" uid="uid://dgoc7sbf2vuag" path="res://prototyping/World/Coral Scenes/yellow_8.tscn" id="25_1xy3s"]
+[ext_resource type="PackedScene" uid="uid://dk62pq26lltre" path="res://prototyping/World/Coral Scenes/pink_4.tscn" id="26_54ymp"]
+[ext_resource type="PackedScene" uid="uid://dqt8748brj85g" path="res://prototyping/World/Coral Scenes/red_2.tscn" id="26_k0uoi"]
+[ext_resource type="PackedScene" uid="uid://d4lo6kb72df6w" path="res://prototyping/World/Coral Scenes/yellow_2.tscn" id="27_4m4c5"]
+[ext_resource type="PackedScene" uid="uid://bai2cqmxgiqkd" path="res://prototyping/World/Coral Scenes/yellow_6.tscn" id="30_1e0gn"]
+[ext_resource type="Texture2D" uid="uid://b42d1ucswqw5t" path="res://prototyping/art/Characters/pufferfish_mom.png" id="36_231cc"]
+[ext_resource type="AudioStream" uid="uid://dcbjblt1hlm6g" path="res://prototyping/music/Underwatertale Mk2.mp3" id="36_jt1mu"]
+[ext_resource type="PackedScene" uid="uid://flbrlxpp0ejj" path="res://prototyping/collectables/mom_egg.tscn" id="37_a0eaw"]
+[ext_resource type="PackedScene" uid="uid://bb7xspdwjr3ow" path="res://prototyping/particles/bubble_particles.tscn" id="37_sqaf7"]
+[ext_resource type="Texture2D" uid="uid://c0qcbf2hdh4wp" path="res://prototyping/art/ebutton3.png" id="38_6doc0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_45gp8"]
+shader = ExtResource("2_q1808")
+shader_parameter/amount = 2048
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8kt0q"]
+shader = ExtResource("2_30jd0")
+shader_parameter/color = Color(6.54578e-06, 0.784701, 0.790197, 0.117647)
+shader_parameter/speed = Vector2(0.02, 0.05)
+shader_parameter/wave_strenth = 1.0
+shader_parameter/transparency = 0.25
+shader_parameter/fast_noise = ExtResource("4_wiq3l")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_opfjn"]
+albedo_texture = ExtResource("5_io8ih")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_8oj13"]
+material = SubResource("StandardMaterial3D_opfjn")
+
+[sub_resource type="QuadMesh" id="QuadMesh_vk105"]
+
+[sub_resource type="Shader" id="Shader_7jvae"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.3.stable's StandardMaterial3D.
+
+shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_toon, specular_toon;
+
+uniform vec4 albedo : source_color;
+uniform sampler2D texture_albedo : source_color, filter_linear_mipmap, repeat_enable;
+uniform float point_size : hint_range(0.1, 128.0, 0.1);
+
+uniform float roughness : hint_range(0.0, 1.0);
+uniform sampler2D texture_metallic : hint_default_white, filter_linear_mipmap, repeat_enable;
+uniform vec4 metallic_texture_channel;
+uniform sampler2D texture_roughness : hint_roughness_r, filter_linear_mipmap, repeat_enable;
+
+uniform float specular : hint_range(0.0, 1.0, 0.01);
+uniform float metallic : hint_range(0.0, 1.0, 0.01);
+
+uniform vec3 uv1_scale;
+uniform vec3 uv1_offset;
+uniform vec3 uv2_scale;
+uniform vec3 uv2_offset;
+
+void vertex() {
+	UV = UV * uv1_scale.xy + uv1_offset.xy;
+
+	// Billboard Mode: Enabled
+	MODELVIEW_MATRIX = VIEW_MATRIX * mat4(
+			MAIN_CAM_INV_VIEW_MATRIX[0],
+			MAIN_CAM_INV_VIEW_MATRIX[1],
+			MAIN_CAM_INV_VIEW_MATRIX[2],
+			MODEL_MATRIX[3]);
+
+	// Billboard Keep Scale: Enabled
+	MODELVIEW_MATRIX = MODELVIEW_MATRIX * mat4(
+			vec4(length(MODEL_MATRIX[0].xyz), 0.0, 0.0, 0.0),
+			vec4(0.0, length(MODEL_MATRIX[1].xyz), 0.0, 0.0),
+			vec4(0.0, 0.0, length(MODEL_MATRIX[2].xyz), 0.0),
+			vec4(0.0, 0.0, 0.0, 1.0));
+	MODELVIEW_NORMAL_MATRIX = mat3(MODELVIEW_MATRIX);
+}
+
+uniform float width : hint_range(0.0, 50.0);
+uniform vec4 outline_color : source_color = vec4(1.0,1.0,1.0,1.0);
+uniform float alphaThreshold: hint_range(0.0, 1.0) =  0.2; // Alpha level a pixel should be considered a glow
+uniform float glowSize: hint_range(0.0, 300) = 15.0; // Size of glow
+uniform int glowDensity: hint_range(0, 30) = 3; // How many stamps to repeat in one direction
+uniform int glowRadialCoverage: hint_range(0, 32) = 4; // How many directions to spread out
+uniform float glowAngle: hint_range(0.0, 6.28) = 1.57; // The starting angle. More important if you want to use this as a trail.
+uniform float glowSharpness: hint_range(0.0, 5.0) = 1.0; // Effect how quickly stamps become transparent as they move out
+
+
+void fragment() {
+	vec2 base_uv = UV;
+
+	vec4 albedo_tex = texture(texture_albedo, base_uv);
+	ALBEDO = albedo.rgb * albedo_tex.rgb;
+
+	float metallic_tex = dot(texture(texture_metallic, base_uv), metallic_texture_channel);
+	METALLIC = metallic_tex * metallic;
+	SPECULAR = specular;
+
+	vec4 roughness_texture_channel = vec4(1.0, 0.0, 0.0, 0.0);
+	float roughness_tex = dot(texture(texture_roughness, base_uv), roughness_texture_channel);
+	ROUGHNESS = roughness_tex * roughness;
+	ALPHA *= albedo.a * albedo_tex.a;
+
+	vec4 col = texture(texture_albedo, UV);
+	ALBEDO = col.rgb;
+	ALPHA = col.a;
+
+	vec2 pixel_size = 1.0 / vec2(textureSize(texture_albedo, 0));
+
+	float alph = 0.0;
+
+	for (int i = 0; i < glowRadialCoverage; i++) { // Goes around in a circle
+		for (int j = 0; j < glowDensity; j++) { // Extends out
+			float radians360 = 6.28;
+			// The angle from which to grab pixel information
+			float angle = (radians360 / float(glowRadialCoverage))*float(i+1) + glowAngle;
+			// The distance to reach to grab pixel information
+			float dist = glowSize * float(j + 1) / float(glowDensity);
+			// Pixel coordinate to grab
+			vec2 pixel_coor = vec2( sin(angle) , cos(angle) );
+			// Gets the pixel based on the previous information
+    		vec4 tex = texture(texture_albedo, UV + pixel_coor * pixel_size * dist);
+
+			// Sharpness. If you don't care about this, enable the next line and delete the next 3
+			//alph += tex.a * line_color.a;
+			float distFrom = float(glowDensity-j) / float(glowDensity); // Distance iteration number (how far out)
+			float sharpness = mix(0.0, 1.0, pow(distFrom, glowSharpness) ); // Figure out sharpness level, interplote with distance and Glow Sharpness modifier
+			alph += (tex.a * outline_color.a) * sharpness; // Apply sharpness
+		}
+	}
+
+	if (ALPHA < alphaThreshold){
+		ALBEDO = outline_color.rgb;
+		ALPHA = alph;
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jogg6"]
+render_priority = 0
+shader = SubResource("Shader_7jvae")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = null
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/width = 0.0
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/alphaThreshold = 0.2
+shader_parameter/glowSize = 5.0
+shader_parameter/glowDensity = 3
+shader_parameter/glowRadialCoverage = 4
+shader_parameter/glowAngle = 6.28
+shader_parameter/glowSharpness = 5.0
+shader_parameter/texture_albedo = ExtResource("10_nx7uh")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ogxo0"]
+radius = 8.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qm1ls"]
+size = Vector3(0.865, 0.725, 1.035)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tke28"]
+render_priority = 0
+shader = SubResource("Shader_7jvae")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = null
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/width = 0.0
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/alphaThreshold = 0.2
+shader_parameter/glowSize = 5.0
+shader_parameter/glowDensity = 6
+shader_parameter/glowRadialCoverage = 2
+shader_parameter/glowAngle = 1.585
+shader_parameter/glowSharpness = 5.0
+shader_parameter/texture_albedo = ExtResource("36_231cc")
+
+[sub_resource type="Environment" id="Environment_yy13f"]
+background_color = Color(0.440397, 0.590774, 0.663446, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.235566, 0.857959, 0.926272, 1)
+ambient_light_energy = 0.5
+
+[node name="PlaytestRegion" type="Node3D" node_paths=PackedStringArray("camera", "fish")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("1_cxeo3")
+camera = NodePath("SubViewportContainer/SubViewport/Camera3D")
+fish = NodePath("SubViewportContainer/SubViewport/finn1_1")
+block_size = 2.0
+region_width = 36.0
+region_height = 24.0
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+material = SubResource("ShaderMaterial_45gp8")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1600, 900)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 0.707106, 0.707106, 0, -0.707106, 0.707106, 0, 12, 18.027)
+projection = 1
+size = 22.589
+
+[node name="ColorRect" type="ColorRect" parent="SubViewportContainer/SubViewport/Camera3D"]
+material = SubResource("ShaderMaterial_8kt0q")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(0.5, 0.75, 0.433013, 0, -0.5, 0.866025, 0.866025, -0.433013, -0.25, 5.44958, 20.4408, -3.06823)
+light_energy = 1.015
+light_bake_mode = 0
+shadow_enabled = true
+
+[node name="Terrain" type="GridMap" parent="SubViewportContainer/SubViewport"]
+mesh_library = ExtResource("2_0u4e0")
+data = {
+"cells": PackedInt32Array(0, 7, 655365, 65535, 7, 655365, 65534, 7, 655365, 65533, 7, 655365, 3, 5, 655365, 4, 5, 655365, 6, 6, 655365, 7, 6, 655365, 9, 8, 655365, 10, 8, 655365, 11, 8, 655365, 65531, 6, 655365, 65530, 6, 655365, 1, 6, 1441797, 1, 5, 1441797, 1, 4, 655366, 2, 4, 1048582, 65532, 6, 1048582, 65529, 5, 1048581, 65529, 4, 1048582, 65528, 3, 1048582, 65527, 3, 655366, 65527, 4, 1441797, 65527, 5, 1441797, 65527, 6, 1441797, 65527, 7, 1441797, 65526, 8, 655365, 65525, 7, 655368, 65525, 8, 1441797, 65525, 9, 1441797, 65525, 10, 1441797, 65524, 11, 655365, 65522, 12, 655365, 65521, 12, 655365, 65519, 12, 655365, 65520, 12, 655365, 65523, 11, 655366, 65518, 11, 1048582, 65517, 10, 1048581, 65517, 9, 1048581, 65517, 8, 1048581, 65517, 7, 1048581, 65517, 6, 1048581, 65517, 5, 1048581, 65518, 4, 5, 65519, 4, 6, 65519, 3, 1048581, 65519, 2, 1048581, 65518, 0, 1048581, 65518, 65535, 1048581, 65518, 65534, 1048581, 65521, 65532, 1048581, 65521, 65531, 1048581, 65522, 65529, 1048581, 65522, 65528, 1048581, 65522, 65527, 1048581, 65522, 65526, 1048581, 65523, 65525, 5, 65524, 65525, 5, 65527, 65526, 5, 65528, 65526, 5, 65529, 65526, 5, 65531, 65524, 5, 65532, 65524, 5, 65533, 65524, 5, 65534, 65524, 5, 65535, 65524, 5, 2, 65525, 5, 1, 65525, 5, 4, 65523, 5, 5, 65523, 5, 6, 65523, 5, 7, 65523, 5, 10, 65525, 5, 11, 65525, 5, 12, 65525, 5, 15, 65526, 5, 16, 65526, 5, 17, 65526, 5, 65519, 1, 1048582, 8, 6, 1048582, 65521, 65533, 6, 65522, 65530, 6, 65526, 65527, 6, 65530, 65526, 6, 3, 65525, 6, 65520, 65533, 5, 65519, 65533, 5, 65525, 65526, 1441797, 65530, 65525, 1048581, 3, 65524, 1048581, 65525, 65527, 1441798, 0, 65525, 1441798, 8, 65524, 1441798, 13, 65526, 1441798, 18, 65527, 1441797, 18, 65528, 1441797, 18, 65529, 1441797, 18, 65531, 1441797, 18, 65530, 1441797, 17, 65533, 1441797, 17, 65534, 1441797, 18, 0, 1441797, 18, 1, 1441797, 18, 3, 1441797, 18, 4, 1441797, 12, 7, 1441797, 13, 6, 655365, 14, 6, 655365, 15, 6, 655365, 16, 6, 655365, 12, 6, 655366, 17, 5, 655366, 17, 65532, 655366, 17, 65535, 1441798, 8, 7, 1048581, 5, 5, 1048581, 5, 4, 655367, 5, 3, 655367, 5, 2, 655367, 5, 1, 655368, 14, 65528, 8, 9, 65526, 8, 16, 2, 1441800, 17, 2, 1441799, 14, 65527, 655367, 9, 65525, 1441797, 65529, 65533, 1441800, 65530, 65530, 1441800, 3, 65531, 1048584, 8, 65531, 655368, 65531, 65531, 1441797, 65531, 65532, 1441797, 65532, 65530, 1048581, 65531, 65533, 5, 65532, 65529, 1048582, 65533, 65531, 1048582, 65533, 65532, 6, 65532, 65533, 6, 65531, 65529, 655366, 65530, 65533, 1048583, 65532, 65531, 1048580, 65532, 65532, 1048580, 65531, 65530, 1048580, 1, 65530, 1048582, 12, 65534, 1048582, 11, 65533, 1048582, 10, 65532, 1048582, 12, 65535, 6, 11, 1, 6, 10, 1, 1441798, 9, 65535, 1441798, 8, 65534, 1441798, 0, 65531, 1441798, 1, 65532, 1441798, 2, 65532, 6, 0, 65530, 655366, 2, 65531, 655365, 9, 65532, 655365, 8, 65532, 1441797, 8, 65533, 1441797, 11, 0, 1048581, 10, 0, 1441797, 10, 65534, 1441796, 10, 65535, 1441796, 11, 65535, 1441796, 11, 65534, 1441796, 10, 65533, 1441796, 9, 65533, 1441796, 9, 65534, 1441796, 1, 65531, 1441796, 18, 65532, 4, 18, 65533, 4, 18, 65534, 4, 18, 65535, 4, 18, 2, 4, 19, 65527, 4, 19, 65528, 4, 19, 65529, 4, 19, 65530, 4, 19, 65531, 4, 19, 65532, 4, 19, 65533, 4, 19, 65534, 4, 19, 65535, 4, 19, 0, 4, 19, 1, 4, 19, 2, 4, 19, 3, 4, 19, 4, 4, 19, 5, 4, 19, 6, 4, 19, 7, 4, 19, 8, 4, 19, 9, 4, 19, 10, 4, 19, 11, 4, 65517, 13, 4, 65518, 13, 4, 65519, 13, 4, 65520, 13, 4, 65521, 13, 4, 65522, 13, 4, 65523, 13, 4, 65524, 13, 4, 65525, 13, 4, 65526, 13, 4, 65527, 13, 4, 65528, 13, 4, 65529, 13, 4, 65530, 13, 4, 65531, 13, 4, 65532, 13, 4, 65533, 13, 4, 65534, 13, 4, 65535, 13, 4, 0, 13, 4, 1, 13, 4, 2, 13, 4, 3, 13, 4, 4, 13, 4, 5, 13, 4, 6, 13, 4, 7, 13, 4, 8, 13, 4, 9, 13, 4, 10, 13, 4, 11, 13, 4, 12, 13, 4, 13, 13, 4, 14, 13, 4, 15, 13, 4, 16, 13, 4, 17, 13, 4, 18, 13, 4, 19, 13, 4, 19, 12, 4, 18, 5, 4, 18, 6, 4, 18, 7, 4, 18, 8, 4, 18, 9, 4, 18, 10, 4, 18, 11, 4, 18, 12, 4, 17, 6, 4, 17, 7, 4, 17, 8, 4, 17, 9, 4, 17, 10, 4, 17, 11, 4, 17, 12, 4, 16, 8, 4, 16, 7, 4, 16, 9, 4, 16, 10, 4, 16, 11, 4, 16, 12, 4, 15, 7, 4, 15, 8, 4, 15, 9, 4, 15, 10, 4, 15, 11, 4, 15, 12, 4, 14, 7, 4, 13, 7, 4, 13, 8, 4, 14, 8, 4, 14, 9, 4, 13, 9, 4, 13, 10, 4, 13, 11, 4, 13, 12, 4, 14, 12, 4, 14, 11, 4, 14, 10, 4, 12, 8, 4, 12, 9, 4, 12, 10, 4, 12, 11, 4, 12, 12, 4, 11, 9, 4, 11, 10, 4, 11, 11, 4, 11, 12, 4, 10, 9, 4, 10, 10, 4, 10, 11, 4, 10, 12, 4, 9, 9, 4, 9, 10, 4, 9, 11, 4, 9, 12, 4, 8, 8, 4, 8, 9, 4, 8, 10, 4, 8, 11, 4, 8, 12, 4, 7, 7, 4, 7, 8, 4, 7, 9, 4, 7, 10, 4, 7, 11, 4, 7, 12, 4, 6, 7, 4, 6, 8, 4, 6, 9, 4, 6, 10, 4, 6, 11, 4, 6, 12, 4, 5, 6, 4, 5, 7, 4, 5, 8, 4, 4, 8, 4, 4, 9, 4, 4, 10, 4, 4, 11, 4, 5, 11, 4, 5, 12, 4, 5, 10, 4, 5, 9, 4, 4, 6, 4, 4, 7, 4, 4, 12, 4, 3, 12, 4, 3, 11, 4, 3, 10, 4, 3, 9, 4, 3, 8, 4, 3, 7, 4, 3, 6, 4, 2, 5, 4, 2, 6, 4, 2, 7, 4, 2, 8, 4, 2, 9, 4, 2, 10, 4, 2, 11, 4, 2, 12, 4, 1, 7, 4, 1, 8, 4, 1, 9, 4, 1, 10, 4, 1, 11, 4, 1, 12, 4, 0, 8, 4, 0, 9, 4, 0, 10, 4, 0, 11, 4, 0, 12, 4, 65535, 8, 4, 65535, 9, 4, 65535, 10, 4, 65535, 11, 4, 65535, 12, 4, 65534, 8, 4, 65533, 8, 4, 65533, 9, 4, 65534, 9, 4, 65534, 11, 4, 65534, 10, 4, 65533, 10, 4, 65532, 10, 4, 65531, 10, 4, 65532, 11, 4, 65533, 11, 4, 65532, 12, 4, 65531, 12, 4, 65530, 12, 4, 65533, 12, 4, 65534, 12, 4, 65529, 12, 4, 65528, 12, 4, 65528, 4, 4, 65528, 5, 4, 65528, 6, 4, 65528, 7, 4, 65528, 8, 4, 65529, 6, 4, 65529, 7, 4, 65530, 7, 4, 65531, 7, 4, 65532, 7, 4, 65532, 8, 4, 65531, 8, 4, 65530, 8, 4, 65529, 8, 4, 65529, 9, 4, 65528, 9, 4, 65530, 9, 4, 65531, 9, 4, 65532, 9, 4, 65527, 8, 4, 65527, 9, 4, 65526, 9, 4, 65526, 10, 4, 65527, 10, 4, 65528, 10, 4, 65529, 10, 4, 65530, 10, 4, 65531, 11, 4, 65530, 11, 4, 65529, 11, 4, 65528, 11, 4, 65527, 11, 4, 65526, 11, 4, 65525, 11, 4, 65525, 12, 4, 65526, 12, 4, 65527, 12, 4, 65524, 12, 4, 65523, 12, 4, 65517, 11, 4, 65517, 12, 4, 65518, 12, 4, 65516, 13, 4, 65516, 12, 4, 65516, 11, 4, 65516, 10, 4, 65516, 9, 4, 65516, 8, 4, 65516, 7, 4, 65516, 6, 4, 65516, 5, 4, 65516, 4, 4, 65516, 3, 4, 65516, 2, 4, 65516, 1, 4, 65516, 0, 4, 65516, 65535, 4, 65516, 65534, 4, 65516, 65533, 4, 65516, 65532, 4, 65516, 65531, 4, 65516, 65530, 4, 65516, 65529, 4, 65516, 65528, 4, 65516, 65527, 4, 65516, 65526, 4, 65516, 65525, 4, 65516, 65524, 4, 65516, 65523, 4, 65516, 65522, 4, 65517, 65522, 4, 65518, 65522, 4, 65519, 65522, 4, 65520, 65522, 4, 65521, 65522, 4, 65522, 65522, 4, 65523, 65522, 4, 65524, 65522, 4, 65525, 65522, 4, 65526, 65522, 4, 65527, 65522, 4, 65528, 65522, 4, 65529, 65522, 4, 65530, 65522, 4, 65531, 65522, 4, 65532, 65522, 4, 65533, 65522, 4, 65534, 65522, 4, 65535, 65522, 4, 0, 65522, 4, 1, 65522, 4, 2, 65522, 4, 3, 65522, 4, 4, 65522, 4, 5, 65522, 4, 6, 65522, 4, 7, 65522, 4, 8, 65522, 4, 9, 65522, 4, 10, 65522, 4, 11, 65522, 4, 12, 65522, 4, 13, 65522, 4, 14, 65522, 4, 15, 65522, 4, 16, 65522, 4, 17, 65522, 4, 18, 65522, 4, 19, 65522, 4, 19, 65523, 4, 19, 65524, 4, 19, 65525, 4, 19, 65526, 4, 18, 65525, 4, 18, 65526, 4, 18, 65524, 4, 18, 65523, 4, 17, 65523, 4, 16, 65523, 4, 15, 65523, 4, 14, 65523, 4, 13, 65523, 4, 12, 65523, 4, 11, 65523, 4, 10, 65523, 4, 9, 65523, 4, 8, 65523, 4, 9, 65524, 4, 10, 65524, 4, 11, 65524, 4, 12, 65524, 4, 13, 65524, 4, 14, 65524, 4, 15, 65524, 4, 16, 65524, 4, 17, 65524, 4, 17, 65525, 4, 16, 65525, 4, 15, 65525, 4, 14, 65525, 4, 13, 65525, 4, 14, 65526, 4, 0, 65524, 4, 1, 65524, 4, 2, 65524, 4, 3, 65523, 4, 2, 65523, 4, 1, 65523, 4, 0, 65523, 4, 65535, 65523, 4, 65534, 65523, 4, 65533, 65523, 4, 65532, 65523, 4, 65531, 65523, 4, 65530, 65523, 4, 65529, 65523, 4, 65528, 65523, 4, 65527, 65523, 4, 65526, 65523, 4, 65525, 65523, 4, 65524, 65523, 4, 65523, 65523, 4, 65522, 65523, 4, 65521, 65523, 4, 65520, 65523, 4, 65519, 65523, 4, 65518, 65523, 4, 65517, 65523, 4, 65517, 65524, 4, 65518, 65524, 4, 65519, 65524, 4, 65520, 65524, 4, 65521, 65524, 4, 65522, 65524, 4, 65523, 65524, 4, 65524, 65524, 4, 65525, 65524, 4, 65526, 65524, 4, 65527, 65524, 4, 65528, 65524, 4, 65529, 65524, 4, 65530, 65524, 4, 65529, 65525, 4, 65528, 65525, 4, 65527, 65525, 4, 65526, 65525, 4, 65525, 65525, 4, 65526, 65526, 4, 65522, 65525, 4, 65521, 65525, 4, 65520, 65525, 4, 65519, 65525, 4, 65518, 65525, 4, 65517, 65525, 4, 65517, 65526, 4, 65518, 65526, 4, 65519, 65526, 4, 65520, 65526, 4, 65521, 65526, 4, 65521, 65527, 4, 65520, 65527, 4, 65519, 65527, 4, 65518, 65527, 4, 65517, 65527, 4, 65517, 65528, 4, 65518, 65528, 4, 65519, 65528, 4, 65520, 65528, 4, 65521, 65528, 4, 65521, 65529, 4, 65520, 65529, 4, 65519, 65529, 4, 65518, 65529, 4, 65517, 65529, 4, 65517, 65530, 4, 65518, 65530, 4, 65519, 65530, 4, 65520, 65530, 4, 65521, 65530, 4, 65520, 65531, 4, 65519, 65531, 4, 65518, 65531, 4, 65517, 65531, 4, 65520, 65532, 4, 65519, 65532, 4, 65518, 65532, 4, 65517, 65532, 4, 65518, 65533, 4, 65517, 65533, 4, 65517, 65534, 4, 65517, 65535, 4, 65517, 0, 4, 65517, 1, 4, 65517, 2, 4, 65517, 3, 4, 65517, 4, 4, 65518, 1, 4, 65518, 2, 4, 65518, 3, 4)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="Overhang1" type="Sprite3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1.667, 0, 0, 0, -7.28669e-08, 1.667, 0, -1.667, -7.28669e-08, 0, 2.1, 0)
+visible = false
+alpha_cut = 2
+texture = ExtResource("6_f2ml1")
+
+[node name="Overhang2" type="Sprite3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1.667, 0, 0, 0, -7.28669e-08, 1.667, 0, -1.667, -7.28669e-08, 0, 2.2, 0)
+alpha_cut = 2
+texture = ExtResource("7_k7gmb")
+
+[node name="Floor" type="MeshInstance3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(36, 0, 0, 0, 1, 0, 0, 0, 24, 0, 0, 0)
+mesh = SubResource("PlaneMesh_8oj13")
+
+[node name="finn1_1" parent="SubViewportContainer/SubViewport" instance=ExtResource("11_um16m")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 1, 3)
+
+[node name="Coral" type="Node3D" parent="SubViewportContainer/SubViewport"]
+
+[node name="Top Left" type="Node3D" parent="SubViewportContainer/SubViewport/Coral"]
+
+[node name="Red1" parent="SubViewportContainer/SubViewport/Coral/Top Left" instance=ExtResource("10_28ebk")]
+transform = Transform3D(0.68, 0, 0, 0, 0.68, 0, 0, 0, 0.68, -22.0654, 0, -11.8943)
+
+[node name="Pink2" parent="SubViewportContainer/SubViewport/Coral/Top Left" instance=ExtResource("11_dvvvs")]
+transform = Transform3D(0.17, 0, 0, 0, 0.17, 0, 0, 0, 0.17, -23.6915, 0.0138721, -13.5299)
+
+[node name="Yellow3" parent="SubViewportContainer/SubViewport/Coral/Top Left" instance=ExtResource("12_6p2t4")]
+transform = Transform3D(0.07, 0, 0, 0, 0.07, 0, 0, 0, 0.07, -22.6611, -0.161789, -13.2466)
+
+[node name="Blue3" parent="SubViewportContainer/SubViewport/Coral/Top Left" instance=ExtResource("13_ggtw1")]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, -21.968, 0, -15.4302)
+
+[node name="Red4" parent="SubViewportContainer/SubViewport/Coral/Top Left" instance=ExtResource("14_iob6g")]
+transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, -19.8597, 0, -13.25)
+
+[node name="Pink7" parent="SubViewportContainer/SubViewport/Coral/Top Left" instance=ExtResource("15_rj31g")]
+transform = Transform3D(0.17, 0, 0, 0, 0.17, 0, 0, 0, 0.17, -24.3532, -1.68717, -14.6615)
+
+[node name="Blue2" parent="SubViewportContainer/SubViewport/Coral/Top Left" instance=ExtResource("16_tddtq")]
+transform = Transform3D(-0.08, 0, 0, 0, -0.08, 0, 0, 0, -0.08, -18.8923, 0, -14.7815)
+
+[node name="Pink3" parent="SubViewportContainer/SubViewport/Coral/Top Left" instance=ExtResource("17_074dt")]
+transform = Transform3D(0.17, 0, 0, 0, 0.17, 0, 0, 0, 0.17, -14.7095, 0, -16.277)
+
+[node name="Pink6" parent="SubViewportContainer/SubViewport/Coral/Top Left" instance=ExtResource("18_6nwjh")]
+transform = Transform3D(0.14, 0, 0, 0, 0.14, 0, 0, 0, 0.14, -16.4103, 0.0696369, -15.6891)
+
+[node name="Pink8" parent="SubViewportContainer/SubViewport/Coral/Top Left" instance=ExtResource("18_6nwjh")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -13.7678, 0.0696369, -11.3854)
+billboard = 2
+
+[node name="Yellow5" parent="SubViewportContainer/SubViewport/Coral/Top Left" instance=ExtResource("19_pxx7l")]
+transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -7.00835, 0, -2.75382)
+
+[node name="Yellow7" parent="SubViewportContainer/SubViewport/Coral/Top Left" instance=ExtResource("20_3qk62")]
+transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, -15.5804, 0, -3.05631)
+
+[node name="Yellow1" parent="SubViewportContainer/SubViewport/Coral/Top Left" instance=ExtResource("21_kkxar")]
+transform = Transform3D(0.17, 0, 0, 0, 0.17, 0, 0, 0, 0.17, -13.1997, 0, -2.05357)
+
+[node name="Red5" parent="SubViewportContainer/SubViewport/Coral/Top Left" instance=ExtResource("22_hbo2j")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -13.4981, 0, -2.51553)
+
+[node name="Blue4" parent="SubViewportContainer/SubViewport/Coral/Top Left" instance=ExtResource("22_1fl8d")]
+transform = Transform3D(0.17, 0, 0, 0, 0.17, 0, 0, 0, 0.17, -9.26085, 0, -2.07344)
+
+[node name="Pink9" parent="SubViewportContainer/SubViewport/Coral/Top Left" instance=ExtResource("20_2efuu")]
+transform = Transform3D(0.17, 0, 0, 0, 0.17, 0, 0, 0, 0.17, -4.9958, 0, -3.37578)
+
+[node name="Blue5" parent="SubViewportContainer/SubViewport/Coral/Top Left" instance=ExtResource("21_cr1ps")]
+transform = Transform3D(0.216683, 0, 0.124694, 0, 0.25, 0, -0.124694, 0, 0.216683, -25.8068, -0.665405, -4.03694)
+
+[node name="Blue6" parent="SubViewportContainer/SubViewport/Coral/Top Left" instance=ExtResource("16_tddtq")]
+transform = Transform3D(0.168497, 0, 0.0225542, 0, 0.17, 0, -0.0225542, 0, 0.168497, -23.9734, 0, -5.95814)
+
+[node name="Pink4" parent="SubViewportContainer/SubViewport/Coral/Top Left" instance=ExtResource("26_54ymp")]
+transform = Transform3D(0.127043, 0, 0.0275698, 0, 0.13, 0, -0.0275698, 0, 0.127043, -25.2076, 0, -6.29347)
+
+[node name="Yellow2" parent="SubViewportContainer/SubViewport/Coral/Top Left" instance=ExtResource("27_4m4c5")]
+transform = Transform3D(0.108926, 0, 0.0153319, 0, 0.11, 0, -0.0153319, 0, 0.108926, -25.5096, 0, -5.09047)
+
+[node name="Red2" parent="SubViewportContainer/SubViewport/Coral/Top Left" instance=ExtResource("26_k0uoi")]
+transform = Transform3D(1.19058, 0, 0.150067, 0, 1.2, 0, -0.150067, 0, 1.19058, -8.34724, 0, -20.1056)
+
+[node name="Blue7" parent="SubViewportContainer/SubViewport/Coral/Top Left" instance=ExtResource("13_ggtw1")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -7.23211, 0, -20.4329)
+
+[node name="Pink10" parent="SubViewportContainer/SubViewport/Coral/Top Left" instance=ExtResource("20_2efuu")]
+transform = Transform3D(0.17, 0, 0, 0, 0.17, 0, 0, 0, 0.17, -5.3038, 0, -19.1087)
+
+[node name="Pink11" parent="SubViewportContainer/SubViewport/Coral/Top Left" instance=ExtResource("18_6nwjh")]
+transform = Transform3D(0.17, 0, 0, 0, 0.17, 0, 0, 0, 0.17, -7.91731, 0, -19.23)
+
+[node name="Pink12" parent="SubViewportContainer/SubViewport/Coral/Top Left" instance=ExtResource("18_6nwjh")]
+transform = Transform3D(0.11, 0, 0, 0, 0.11, 0, 0, 0, 0.11, -6.68536, 0, -18.7622)
+
+[node name="Pink13" parent="SubViewportContainer/SubViewport/Coral/Top Left" instance=ExtResource("18_6nwjh")]
+transform = Transform3D(0.07, 0, 0, 0, 0.07, 0, 0, 0, 0.07, -8.09567, 0, -18.6175)
+
+[node name="Yellow8" parent="SubViewportContainer/SubViewport/Coral/Top Left" instance=ExtResource("20_3qk62")]
+transform = Transform3D(0.17, 0, 0, 0, 0.17, 0, 0, 0, 0.17, -1.18869, 0, -12.8985)
+
+[node name="Top Right" type="Node3D" parent="SubViewportContainer/SubViewport/Coral"]
+
+[node name="Blue6" parent="SubViewportContainer/SubViewport/Coral/Top Right" instance=ExtResource("19_ng2vc")]
+transform = Transform3D(0.17, 0, 0, 0, 0.17, 0, 0, 0, 0.17, 13.2527, 0, -7.62382)
+
+[node name="Pink7" parent="SubViewportContainer/SubViewport/Coral/Top Right" instance=ExtResource("15_rj31g")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 12.0685, 0, -8.01388)
+
+[node name="Pink8" parent="SubViewportContainer/SubViewport/Coral/Top Right" instance=ExtResource("20_2efuu")]
+transform = Transform3D(0.109969, -0.0026031, 0, 0.0026031, 0.109969, 0, 0, 0, -0.11, 13.387, -0.112053, -6.02032)
+
+[node name="Pink6" parent="SubViewportContainer/SubViewport/Coral/Top Right" instance=ExtResource("18_6nwjh")]
+transform = Transform3D(0.17, 0, 0, 0, 0.17, 0, 0, 0, 0.17, 12.0014, 0, -6.7158)
+
+[node name="Pink4" parent="SubViewportContainer/SubViewport/Coral/Top Right" instance=ExtResource("26_54ymp")]
+transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 14.1101, 0, -22.3293)
+
+[node name="Pink9" parent="SubViewportContainer/SubViewport/Coral/Top Right" instance=ExtResource("15_rj31g")]
+transform = Transform3D(0.17, 0, 0, 0, 0.17, 0, 0, 0, 0.17, 21.77, 0, -16.8849)
+
+[node name="Pink10" parent="SubViewportContainer/SubViewport/Coral/Top Right" instance=ExtResource("15_rj31g")]
+transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, 12.084, 0, -22.4823)
+
+[node name="Pink2" parent="SubViewportContainer/SubViewport/Coral/Top Right" instance=ExtResource("11_dvvvs")]
+transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 16.0483, 0, -20.9557)
+
+[node name="Blue2" parent="SubViewportContainer/SubViewport/Coral/Top Right" instance=ExtResource("16_tddtq")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 14.861, 0, -21.8687)
+
+[node name="Yellow2" parent="SubViewportContainer/SubViewport/Coral/Top Right" instance=ExtResource("27_4m4c5")]
+transform = Transform3D(0.0882872, 0, -0.0174749, 0, 0.09, 0, 0.0174749, 0, 0.0882872, 14.2933, 0, -21.3266)
+
+[node name="Yellow5" parent="SubViewportContainer/SubViewport/Coral/Top Right" instance=ExtResource("19_pxx7l")]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 6.65611, 0, -19.366)
+
+[node name="Yellow6" parent="SubViewportContainer/SubViewport/Coral/Top Right" instance=ExtResource("30_1e0gn")]
+transform = Transform3D(0.17, 0, 0, 0, 0.17, 0, 0, 0, 0.17, 1.00185, 0, -18.2333)
+
+[node name="Red4" parent="SubViewportContainer/SubViewport/Coral/Top Right" instance=ExtResource("14_iob6g")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 1.46328, 0, -18.6566)
+
+[node name="Red2" parent="SubViewportContainer/SubViewport/Coral/Top Right" instance=ExtResource("26_k0uoi")]
+transform = Transform3D(0.79, 0, 0, 0, 0.79, 0, 0, 0, 0.79, 5.18229, 0, -18.8037)
+
+[node name="Pink5" parent="SubViewportContainer/SubViewport/Coral/Top Right" instance=ExtResource("26_54ymp")]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 4.13186, 0, -19.1885)
+
+[node name="Blue5" parent="SubViewportContainer/SubViewport/Coral/Top Right" instance=ExtResource("21_cr1ps")]
+transform = Transform3D(0.27661, 0, -0.0871033, 0, 0.29, 0, 0.0871033, 0, 0.27661, 33.9861, -0.743053, -15.6603)
+
+[node name="Red5" parent="SubViewportContainer/SubViewport/Coral/Top Right" instance=ExtResource("22_hbo2j")]
+transform = Transform3D(1.37597, 0, -0.545065, 0, 1.48, 0, 0.545065, 0, 1.37597, 34.4415, 0, -16.479)
+
+[node name="Pink11" parent="SubViewportContainer/SubViewport/Coral/Top Right" instance=ExtResource("18_6nwjh")]
+transform = Transform3D(0.17, 0, 0, 0, 0.17, 0, 0, 0, 0.17, 31.7364, 0, -14.4527)
+
+[node name="Pink12" parent="SubViewportContainer/SubViewport/Coral/Top Right" instance=ExtResource("18_6nwjh")]
+transform = Transform3D(0.0939924, 0, -0.0746017, 0, 0.12, 0, 0.0746017, 0, 0.0939924, 34.9625, 0, -12.6873)
+
+[node name="Yellow7" parent="SubViewportContainer/SubViewport/Coral/Top Right" instance=ExtResource("30_1e0gn")]
+transform = Transform3D(0.07, 0, 0, 0, 0.07, 0, 0, 0, 0.07, 20.8181, 0, -17.5629)
+
+[node name="Yellow4" parent="SubViewportContainer/SubViewport/Coral/Top Right" instance=ExtResource("24_dfto0")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 24.445, 0, -19.96)
+
+[node name="Blue4" parent="SubViewportContainer/SubViewport/Coral/Top Right" instance=ExtResource("22_1fl8d")]
+transform = Transform3D(0.117572, 0, -0.0240186, 0, 0.12, 0, 0.0240186, 0, 0.117572, 24.8888, 0, -19.5215)
+
+[node name="Pink3" parent="SubViewportContainer/SubViewport/Coral/Top Right" instance=ExtResource("17_074dt")]
+transform = Transform3D(0.198072, 0, -0.0277033, 0, 0.2, 0, 0.0277033, 0, 0.198072, 25.1233, 0, -16.098)
+
+[node name="Blue3" parent="SubViewportContainer/SubViewport/Coral/Top Right" instance=ExtResource("16_tddtq")]
+transform = Transform3D(0.0978169, 0, 0.0207809, 0, 0.1, 0, -0.0207809, 0, 0.0978169, 28.161, 0, -6.70214)
+
+[node name="Pink13" parent="SubViewportContainer/SubViewport/Coral/Top Right" instance=ExtResource("18_6nwjh")]
+transform = Transform3D(0.165936, 0, 0.0369482, 0, 0.17, 0, -0.0369482, 0, 0.165936, 27.9184, 0, -5.22702)
+
+[node name="Bottom Left" type="Node3D" parent="SubViewportContainer/SubViewport/Coral"]
+
+[node name="Blue5" parent="SubViewportContainer/SubViewport/Coral/Bottom Left" instance=ExtResource("21_cr1ps")]
+transform = Transform3D(0.166151, -0.000758615, 0.0359634, 0.0007555, 0.169998, 9.55547e-05, -0.0359635, 6.64348e-05, 0.166152, -31.6822, -0.49068, 10.0409)
+
+[node name="Blue4" parent="SubViewportContainer/SubViewport/Coral/Bottom Left" instance=ExtResource("22_1fl8d")]
+transform = Transform3D(0.11796, 0, 0.122415, 0, 0.17, 0, -0.122415, 0, 0.11796, -34.8298, 0, 13.1727)
+
+[node name="Pink1" parent="SubViewportContainer/SubViewport/Coral/Bottom Left" instance=ExtResource("23_ngxo1")]
+transform = Transform3D(0.244781, 0, 0.11394, 0, 0.27, 0, -0.11394, 0, 0.244781, -28.0859, 0, 1.1595)
+
+[node name="Yellow4" parent="SubViewportContainer/SubViewport/Coral/Bottom Left" instance=ExtResource("24_dfto0")]
+transform = Transform3D(0.0967617, 0, 0.0252424, 0, 0.1, 0, -0.0252424, 0, 0.0967617, -28.9363, 0, 0.811837)
+
+[node name="Blue2" parent="SubViewportContainer/SubViewport/Coral/Bottom Left" instance=ExtResource("16_tddtq")]
+transform = Transform3D(0.063645, 0, 0.029143, 0, 0.07, 0, -0.029143, 0, 0.063645, -28.9157, 0, 2.91917)
+
+[node name="Red4" parent="SubViewportContainer/SubViewport/Coral/Bottom Left" instance=ExtResource("14_iob6g")]
+transform = Transform3D(0.635171, 0, 0.138049, 0, 0.65, 0, -0.138049, 0, 0.635171, -27.1056, 0, 1.25178)
+
+[node name="Blue3" parent="SubViewportContainer/SubViewport/Coral/Bottom Left" instance=ExtResource("13_ggtw1")]
+transform = Transform3D(0.163271, 0, 0.0473544, 0, 0.17, 0, -0.0473544, 0, 0.163271, -10.6904, 0, 5.93445)
+
+[node name="Blue6" parent="SubViewportContainer/SubViewport/Coral/Bottom Left" instance=ExtResource("19_ng2vc")]
+transform = Transform3D(0.16, 0, 0, 0, 0.16, 0, 0, 0, 0.16, -9.12484, 0, 6.55323)
+
+[node name="Pink6" parent="SubViewportContainer/SubViewport/Coral/Bottom Left" instance=ExtResource("18_6nwjh")]
+transform = Transform3D(0.17, 0, 0, 0, 0.17, 0, 0, 0, 0.17, -9.98369, 0.195969, 7.18526)
+
+[node name="Yellow8" parent="SubViewportContainer/SubViewport/Coral/Bottom Left" instance=ExtResource("25_1xy3s")]
+transform = Transform3D(0.077712, 0, 0.0189959, 0, 0.08, 0, -0.0189959, 0, 0.077712, -8.56129, 0, 7.44106)
+
+[node name="Red2" parent="SubViewportContainer/SubViewport/Coral/Bottom Left" instance=ExtResource("26_k0uoi")]
+transform = Transform3D(1.61, 0, 0, 0, 1.61, 0, 0, 0, 1.61, -1.30465, 0, 10.1664)
+
+[node name="Yellow2" parent="SubViewportContainer/SubViewport/Coral/Bottom Left" instance=ExtResource("27_4m4c5")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -2.23905, 0, 9.41885)
+
+[node name="Blue7" parent="SubViewportContainer/SubViewport/Coral/Bottom Left" instance=ExtResource("16_tddtq")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -2.892, 0, 10.123)
+
+[node name="Bottom Right" type="Node3D" parent="SubViewportContainer/SubViewport/Coral"]
+
+[node name="WiseMaster" type="Area3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.6677, 0, -9.67657)
+script = ExtResource("9_c52lf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/WiseMaster"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 1.93075, 2.61588, 0)
+mesh = SubResource("QuadMesh_vk105")
+skeleton = NodePath("../Sprite3D")
+surface_material_override/0 = SubResource("ShaderMaterial_jogg6")
+
+[node name="Sprite3D" type="Sprite3D" parent="SubViewportContainer/SubViewport/WiseMaster"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 1.931, 2.616, -0.66)
+cast_shadow = 3
+billboard = 1
+alpha_cut = 2
+texture = ExtResource("10_nx7uh")
+
+[node name="Button" type="Sprite3D" parent="SubViewportContainer/SubViewport/WiseMaster/Sprite3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.66, 0.866)
+modulate = Color(1, 1, 1, 0)
+billboard = 1
+no_depth_test = true
+texture = ExtResource("38_6doc0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/WiseMaster"]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 1.515, 0.0915003, 0)
+shape = SubResource("SphereShape3D_ogxo0")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/WiseMaster"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/WiseMaster/StaticBody3D"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 1.991, 2.442, -0.527)
+shape = SubResource("BoxShape3D_qm1ls")
+
+[node name="PuffMom" type="Area3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(0.999994, -0.0035081, 0, 0.0035081, 0.999994, 0, 0, 0, 1, 27.9744, -0.0607433, -9.72935)
+script = ExtResource("9_c52lf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/PuffMom"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 1.93075, 2.61588, 0)
+mesh = SubResource("QuadMesh_vk105")
+skeleton = NodePath("../Sprite3D")
+surface_material_override/0 = SubResource("ShaderMaterial_tke28")
+
+[node name="Sprite3D" type="Sprite3D" parent="SubViewportContainer/SubViewport/PuffMom"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 1.931, 2.616, -0.66)
+cast_shadow = 3
+billboard = 1
+alpha_cut = 2
+texture = ExtResource("36_231cc")
+
+[node name="Button" type="Sprite3D" parent="SubViewportContainer/SubViewport/PuffMom/Sprite3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.66, 0.866)
+modulate = Color(1, 1, 1, 0)
+billboard = 1
+no_depth_test = true
+texture = ExtResource("38_6doc0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/PuffMom"]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 1.515, 0.0915003, 0)
+shape = SubResource("SphereShape3D_ogxo0")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/PuffMom"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/PuffMom/StaticBody3D"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 1.991, 2.442, -0.527)
+shape = SubResource("BoxShape3D_qm1ls")
+
+[node name="BubbleParticles" parent="SubViewportContainer/SubViewport" instance=ExtResource("37_sqaf7")]
+transform = Transform3D(1, 0, 0, 0, 1.77672, 0, 0, 0, 1, -0.785157, -0.989254, -2.32227)
+
+[node name="eggs" type="Node3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.22445, 0.823834, -6.51484)
+
+[node name="MomEgg" parent="SubViewportContainer/SubViewport/eggs" instance=ExtResource("37_a0eaw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.90673, -0.324344, -0.594453)
+
+[node name="MomEgg2" parent="SubViewportContainer/SubViewport/eggs" instance=ExtResource("37_a0eaw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.8586, 0, 6.37377)
+
+[node name="MomEgg3" parent="SubViewportContainer/SubViewport/eggs" instance=ExtResource("37_a0eaw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.9005, 0, 13.3153)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SubViewportContainer/SubViewport"]
+stream = ExtResource("36_jt1mu")
+volume_db = -6.975
+autoplay = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport"]
+environment = SubResource("Environment_yy13f")
+
+[connection signal="dialogue_finished" from="SubViewportContainer/SubViewport/WiseMaster" to="SubViewportContainer/SubViewport/finn1_1" method="_on_dialogue_finished"]
+[connection signal="dialogue_started" from="SubViewportContainer/SubViewport/WiseMaster" to="SubViewportContainer/SubViewport/finn1_1" method="_on_dialogue_started"]
+[connection signal="dialogue_finished" from="SubViewportContainer/SubViewport/PuffMom" to="SubViewportContainer/SubViewport/finn1_1" method="_on_dialogue_finished"]
+[connection signal="dialogue_started" from="SubViewportContainer/SubViewport/PuffMom" to="SubViewportContainer/SubViewport/finn1_1" method="_on_dialogue_started"]

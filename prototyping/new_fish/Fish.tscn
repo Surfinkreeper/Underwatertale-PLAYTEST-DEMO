@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8uw324u2smji"]
+
+[ext_resource type="PackedScene" uid="uid://d0mh78jignjf" path="res://prototyping/resources/3D Models/erm fish3.0.glb" id="1_uwojp"]
+[ext_resource type="Script" path="res://prototyping/FishMovement/vertex-forces.gd" id="2_kcnqn"]
+
+[node name="Fish_Model" instance=ExtResource("1_uwojp")]
+script = ExtResource("2_kcnqn")
+
+[node name="Armature" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+bones/0/rotation = Quaternion(0.000474975, 0.000474975, 0.000474975, 1.00048)

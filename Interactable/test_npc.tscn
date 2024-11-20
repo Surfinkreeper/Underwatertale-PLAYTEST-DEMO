@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7k13hqdtjlsn"]
+
+[ext_resource type="Script" path="res://Interactable/npc_controller.gd" id="1_8t6ak"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_5hjyi"]
+size = Vector2(500, 500)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_o7685"]
+radius = 0.499177
+
+[node name="TestNpc" type="Node3D"]
+script = ExtResource("1_8t6ak")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+texture = SubResource("PlaceholderTexture2D_5hjyi")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(5.225, 0, 0, 0, 5.225, 0, 0, 0, 5.225, 0, 0, 0)
+shape = SubResource("SphereShape3D_o7685")

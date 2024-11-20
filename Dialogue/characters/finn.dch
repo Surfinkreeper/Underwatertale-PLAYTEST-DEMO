@@ -1,0 +1,83 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+"_translation_id": "",
+"color": Color(1, 1, 1, 1),
+"custom_info": {
+"sound_mood_default": "",
+"sound_moods": {},
+"style": "dialogue_test"
+},
+"default_portrait": "neutral",
+"description": "",
+"display_name": "Finn",
+"mirror": false,
+"nicknames": [""],
+"offset": Vector2(0, 0),
+"portraits": {
+"angry": {
+"export_overrides": {
+"image": "\"res://Dialogue/characters/art/finn/FinnPortrait_angry.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"confused": {
+"export_overrides": {
+"image": "\"res://Dialogue/characters/art/finn/FinnPortrait_confused.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"elated": {
+"export_overrides": {
+"image": "\"res://Dialogue/characters/art/finn/FinnPortrait_elated.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"happy": {
+"export_overrides": {
+"image": "\"res://Dialogue/characters/art/finn/FinnPortrait_happy.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"neutral": {
+"export_overrides": {
+"image": "\"res://Dialogue/characters/art/finn/FinnPortrait_neutral.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"sad": {
+"export_overrides": {
+"image": "\"res://Dialogue/characters/art/finn/FinnPortrait_sad.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"surprised": {
+"export_overrides": {
+"image": "\"res://Dialogue/characters/art/finn/FinnPortrait_surprised.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+}
+},
+"scale": 1.0
+}

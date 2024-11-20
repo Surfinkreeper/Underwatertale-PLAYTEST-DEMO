@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://mfrxn52d03nl"]
+
+[ext_resource type="Script" path="res://interactable.gd" id="1_c6s1j"]
+[ext_resource type="Texture2D" uid="uid://32c0pijf4x4w" path="res://prototyping/art/bro1.png" id="2_16yti"]
+
+[node name="NPC" type="Area3D"]
+script = ExtResource("1_c6s1j")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.55, 0, 0, 0, 0.466934, 0.290641, 0, -0.290641, 0.466934, 0, 1.98, 0)
+texture = ExtResource("2_16yti")

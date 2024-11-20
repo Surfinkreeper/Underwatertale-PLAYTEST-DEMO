@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://i8pl1mox713e"]
+
+[ext_resource type="PackedScene" uid="uid://cwdl3525u00tn" path="res://prototyping/art/proto_fish3d.glb" id="1_ylyuk"]
+
+[node name="fishmode" instance=ExtResource("1_ylyuk")]
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/1/rotation = Quaternion(0.999475, -0.389525, 0.000474975, 0.00847497)
+bones/2/rotation = Quaternion(0.00847497, 0.000474975, 0.190475, 0.999475)
+bones/3/rotation = Quaternion(0.000474975, 0.000474975, 0.220475, 1.00048)
+bones/4/rotation = Quaternion(0.000474975, 0.000474975, 0.130475, 1.00048)
+bones/6/rotation = Quaternion(0.000474975, 0.000474975, 0.190475, 1.00048)

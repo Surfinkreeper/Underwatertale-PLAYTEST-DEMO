@@ -1,0 +1,378 @@
+[gd_scene load_steps=25 format=3 uid="uid://dr2qjppmg42hm"]
+
+[ext_resource type="PackedScene" uid="uid://dfvdmisjoj1u" path="res://prototyping/resources/3D Models/finn1.1.glb" id="1_q2ah8"]
+[ext_resource type="Script" path="res://prototyping/FishMovement/fish_5.gd" id="2_7gp0l"]
+[ext_resource type="Shader" path="res://prototyping/FishMovement/outline.gdshader" id="3_gbyri"]
+[ext_resource type="Texture2D" uid="uid://brp7yslet6ynl" path="res://prototyping/art/Characters/finn/finn1_Cylinder Base Color.png" id="4_hmcu2"]
+[ext_resource type="Script" path="res://interactor.gd" id="4_wk857"]
+[ext_resource type="Texture2D" uid="uid://csxnc3hwsftfq" path="res://prototyping/art/Characters/finn/finn1_Material Base Color.png" id="5_ydcha"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ovnc0"]
+render_priority = 0
+shader = ExtResource("3_gbyri")
+shader_parameter/outline_color = Color(0.231491, 0.0821268, 0.0164125, 1)
+shader_parameter/outline_width = 7.0
+shader_parameter/time_scale = 2.0
+shader_parameter/side_to_side = 0.1
+shader_parameter/pivot = 0.5
+shader_parameter/wave = 0.1
+shader_parameter/twist = 0.1
+
+[sub_resource type="Shader" id="Shader_pqod6"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.3.stable's StandardMaterial3D.
+
+shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_burley, specular_schlick_ggx;
+
+uniform vec4 albedo : source_color;
+uniform sampler2D texture_albedo : source_color, filter_linear_mipmap, repeat_enable;
+uniform float point_size : hint_range(0.1, 128.0, 0.1);
+
+uniform float roughness : hint_range(0.0, 1.0);
+uniform sampler2D texture_metallic : hint_default_white, filter_linear_mipmap, repeat_enable;
+uniform vec4 metallic_texture_channel;
+uniform sampler2D texture_roughness : hint_roughness_r, filter_linear_mipmap, repeat_enable;
+
+uniform float specular : hint_range(0.0, 1.0, 0.01);
+uniform float metallic : hint_range(0.0, 1.0, 0.01);
+
+uniform vec3 uv1_scale;
+uniform vec3 uv1_offset;
+uniform vec3 uv2_scale;
+uniform vec3 uv2_offset;
+
+uniform float time_scale = 2.0f;
+uniform float side_to_side = 0.1f;
+uniform float pivot = 0.5f;
+uniform float wave = 0.1f;
+uniform float twist = 0.1f;
+uniform vec3 custom_albedo : source_color;
+
+void vertex() {
+	UV = UV * uv1_scale.xy + uv1_offset.xy;
+	//time_scale is a uniform float
+	float time = TIME * time_scale;
+
+	VERTEX.x += cos(time) * side_to_side;
+
+	//angle is scaled by 0.1 so that the fish only pivots and doesn't rotate all the way around
+	//pivot is a uniform float
+	float pivot_angle = cos(time) * 0.1 * pivot;
+	mat2 rotation_matrix = mat2(vec2(cos(pivot_angle), -sin(pivot_angle)), vec2(sin(pivot_angle), cos(pivot_angle)));
+
+	VERTEX.xz = rotation_matrix * VERTEX.xz;
+
+	float body = (VERTEX.z + 1.0) / 2.0; //for a fish centered at (0, 0) with a length of 2
+
+	//wave is a uniform float
+	VERTEX.x += cos(time + body) * wave;
+
+	//twist is a uniform float
+	float twist_angle = cos(time + body) * 0.3 * twist;
+	mat2 twist_matrix = mat2(vec2(cos(twist_angle), -sin(twist_angle)), vec2(sin(twist_angle), cos(twist_angle)));
+
+	VERTEX.xy = twist_matrix * VERTEX.xy;
+}
+
+void fragment() {
+	vec2 base_uv = UV;
+
+	vec4 albedo_tex = texture(texture_albedo, base_uv);
+	ALBEDO = albedo.rgb * albedo_tex.rgb;
+
+	float metallic_tex = dot(texture(texture_metallic, base_uv), metallic_texture_channel);
+	METALLIC = metallic_tex * metallic;
+	SPECULAR = specular;
+
+	vec4 roughness_texture_channel = vec4(1.0, 0.0, 0.0, 0.0);
+	float roughness_tex = dot(texture(texture_roughness, base_uv), roughness_texture_channel);
+	ROUGHNESS = roughness_tex * roughness;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_isml0"]
+render_priority = 0
+shader = SubResource("Shader_pqod6")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = null
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/time_scale = 2.0
+shader_parameter/side_to_side = 0.1
+shader_parameter/pivot = 0.5
+shader_parameter/wave = 0.1
+shader_parameter/twist = 0.1
+shader_parameter/custom_albedo = null
+shader_parameter/texture_albedo = ExtResource("4_hmcu2")
+
+[sub_resource type="Shader" id="Shader_l071k"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.3.stable's StandardMaterial3D.
+
+shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_burley, specular_schlick_ggx;
+
+uniform vec4 albedo : source_color;
+uniform sampler2D texture_albedo : source_color, filter_linear_mipmap, repeat_enable;
+uniform float point_size : hint_range(0.1, 128.0, 0.1);
+
+uniform float roughness : hint_range(0.0, 1.0);
+uniform sampler2D texture_metallic : hint_default_white, filter_linear_mipmap, repeat_enable;
+uniform vec4 metallic_texture_channel;
+uniform sampler2D texture_roughness : hint_roughness_r, filter_linear_mipmap, repeat_enable;
+
+uniform float specular : hint_range(0.0, 1.0, 0.01);
+uniform float metallic : hint_range(0.0, 1.0, 0.01);
+
+uniform vec3 uv1_scale;
+uniform vec3 uv1_offset;
+uniform vec3 uv2_scale;
+uniform vec3 uv2_offset;
+
+uniform float time_scale = 2.0f;
+uniform float side_to_side = 0.1f;
+uniform float pivot = 0.5f;
+uniform float wave = 0.1f;
+uniform float twist = 0.1f;
+uniform vec3 custom_albedo : source_color;
+
+void vertex() {
+	UV = UV * uv1_scale.xy + uv1_offset.xy;
+
+	//time_scale is a uniform float
+	float time = TIME * time_scale;
+
+	VERTEX.x += cos(time) * side_to_side;
+
+	//angle is scaled by 0.1 so that the fish only pivots and doesn't rotate all the way around
+	//pivot is a uniform float
+	float pivot_angle = cos(time) * 0.1 * pivot;
+	mat2 rotation_matrix = mat2(vec2(cos(pivot_angle), -sin(pivot_angle)), vec2(sin(pivot_angle), cos(pivot_angle)));
+
+	VERTEX.xz = rotation_matrix * VERTEX.xz;
+
+	float body = (VERTEX.z + 1.0) / 2.0; //for a fish centered at (0, 0) with a length of 2
+
+	//wave is a uniform float
+	VERTEX.x += cos(time + body) * wave;
+
+	//twist is a uniform float
+	float twist_angle = cos(time + body) * 0.3 * twist;
+	mat2 twist_matrix = mat2(vec2(cos(twist_angle), -sin(twist_angle)), vec2(sin(twist_angle), cos(twist_angle)));
+
+	VERTEX.xy = twist_matrix * VERTEX.xy;
+}
+
+void fragment() {
+	vec2 base_uv = UV;
+
+	vec4 albedo_tex = texture(texture_albedo, base_uv);
+	ALBEDO = albedo.rgb * albedo_tex.rgb;
+
+	float metallic_tex = dot(texture(texture_metallic, base_uv), metallic_texture_channel);
+	METALLIC = metallic_tex * metallic;
+	SPECULAR = specular;
+
+	vec4 roughness_texture_channel = vec4(1.0, 0.0, 0.0, 0.0);
+	float roughness_tex = dot(texture(texture_roughness, base_uv), roughness_texture_channel);
+	ROUGHNESS = roughness_tex * roughness;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_82sy3"]
+render_priority = 0
+shader = SubResource("Shader_l071k")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = null
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/time_scale = 2.0
+shader_parameter/side_to_side = 0.1
+shader_parameter/pivot = 0.5
+shader_parameter/wave = 0.1
+shader_parameter/twist = 0.1
+shader_parameter/custom_albedo = null
+shader_parameter/texture_albedo = ExtResource("5_ydcha")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6ohn7"]
+render_priority = 0
+shader = ExtResource("3_gbyri")
+shader_parameter/outline_color = Color(0.258096, 0.0961249, 0.0222396, 1)
+shader_parameter/outline_width = 5.0
+shader_parameter/time_scale = 2.0
+shader_parameter/side_to_side = 0.1
+shader_parameter/pivot = 0.5
+shader_parameter/wave = 0.1
+shader_parameter/twist = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jbb0q"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5y1k1"]
+friction = 0.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_mbwvy"]
+radius = 1.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_jt2ps"]
+radius = 1.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_8dlqf"]
+radius = 0.9
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_itulx"]
+radius = 0.8
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_cjumh"]
+radius = 0.65
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_k6mlc"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_458rm"]
+radius = 0.4
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_fgvhk"]
+radius = 0.35
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_8f1fm"]
+radius = 0.35
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_xfq1e"]
+radius = 0.4
+
+[node name="finn1_1" instance=ExtResource("1_q2ah8")]
+script = ExtResource("2_7gp0l")
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+bones/0/rotation = Quaternion(0.000474975, 0.000474975, 0.000474975, 1.00048)
+
+[node name="Cylinder" parent="Armature/Skeleton3D" index="0"]
+material_overlay = SubResource("ShaderMaterial_ovnc0")
+surface_material_override/0 = SubResource("ShaderMaterial_isml0")
+
+[node name="Roundcube" parent="Armature/Skeleton3D" index="1"]
+material_override = SubResource("ShaderMaterial_82sy3")
+material_overlay = SubResource("ShaderMaterial_6ohn7")
+surface_material_override/0 = SubResource("StandardMaterial3D_jbb0q")
+
+[node name="Colliders" type="Node3D" parent="." index="1"]
+
+[node name="Head" type="RigidBody3D" parent="Colliders" index="0"]
+collision_layer = 6
+mass = 2.0
+physics_material_override = SubResource("PhysicsMaterial_5y1k1")
+gravity_scale = 0.0
+lock_rotation = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/Head" index="0"]
+shape = SubResource("CylinderShape3D_mbwvy")
+
+[node name="Interactor" type="Area3D" parent="Colliders/Head" index="1" node_paths=PackedStringArray("my_fish")]
+script = ExtResource("4_wk857")
+my_fish = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/Head/Interactor" index="0"]
+shape = SubResource("SphereShape3D_jt2ps")
+
+[node name="1" type="RigidBody3D" parent="Colliders" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+collision_layer = 2
+mass = 2.25
+physics_material_override = SubResource("PhysicsMaterial_5y1k1")
+gravity_scale = 0.0
+lock_rotation = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/1" index="0"]
+shape = SubResource("CylinderShape3D_8dlqf")
+
+[node name="2" type="RigidBody3D" parent="Colliders" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+collision_layer = 6
+collision_mask = 5
+mass = 2.0
+physics_material_override = SubResource("PhysicsMaterial_5y1k1")
+gravity_scale = 0.0
+lock_rotation = true
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Colliders/2" index="0"]
+shape = SubResource("CylinderShape3D_itulx")
+
+[node name="3" type="RigidBody3D" parent="Colliders" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+collision_layer = 2
+mass = 1.75
+physics_material_override = SubResource("PhysicsMaterial_5y1k1")
+gravity_scale = 0.0
+lock_rotation = true
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Colliders/3" index="0"]
+shape = SubResource("CylinderShape3D_cjumh")
+
+[node name="4" type="RigidBody3D" parent="Colliders" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+collision_layer = 6
+collision_mask = 5
+mass = 1.5
+physics_material_override = SubResource("PhysicsMaterial_5y1k1")
+gravity_scale = 0.0
+lock_rotation = true
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Colliders/4" index="0"]
+shape = SubResource("CylinderShape3D_k6mlc")
+
+[node name="5" type="RigidBody3D" parent="Colliders" index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.5)
+collision_layer = 2
+mass = 1.5
+physics_material_override = SubResource("PhysicsMaterial_5y1k1")
+gravity_scale = 0.0
+lock_rotation = true
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Colliders/5" index="0"]
+shape = SubResource("CylinderShape3D_458rm")
+
+[node name="6" type="RigidBody3D" parent="Colliders" index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+collision_layer = 6
+collision_mask = 5
+mass = 1.25
+physics_material_override = SubResource("PhysicsMaterial_5y1k1")
+gravity_scale = 0.0
+lock_rotation = true
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Colliders/6" index="0"]
+shape = SubResource("CylinderShape3D_fgvhk")
+
+[node name="7" type="RigidBody3D" parent="Colliders" index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.5)
+collision_layer = 2
+mass = 1.25
+physics_material_override = SubResource("PhysicsMaterial_5y1k1")
+gravity_scale = 0.0
+lock_rotation = true
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="Colliders/7" index="0"]
+shape = SubResource("CylinderShape3D_8f1fm")
+
+[node name="8" type="RigidBody3D" parent="Colliders" index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+collision_layer = 6
+collision_mask = 5
+mass = 0.75
+physics_material_override = SubResource("PhysicsMaterial_5y1k1")
+gravity_scale = 0.0
+lock_rotation = true
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="Colliders/8" index="0"]
+shape = SubResource("CylinderShape3D_xfq1e")

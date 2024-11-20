@@ -1,0 +1,34 @@
+if {PuffMom.eggs} == 0:
+	if {PuffMom.first_time} == true:
+		puffmom (surprised): AHH !!! I LOST MY EGGS !!! MY BABIES !!!!
+		finn (neutral): Oh you've lost your eggs? I can help find them!
+		puffmom (neutral): Thank you!! my modest family of 3 is strewn about this very cove.
+		finn (happy): Ok!! I'll do my best to find them!
+	else:
+		finn (neutral): I haven't found any of Mom's eggs yet...
+elif {PuffMom.eggs} == 1:
+	finn (elated): I've found one of your eggs!
+	puffmom (relief): THANK YOU !!!!
+	finn (neutral): But there's still more to go...
+elif {PuffMom.eggs} == 2:
+	finn (happy): Order up! Got your egg right here Ma'am!
+	puffmom (surprised): WOWW !! I don't know why you said it like that but thank you !!!
+	finn (neutral): Just one left to go...
+elif {PuffMom.eggs} == 3:
+	finn (neutral): I think I've found them all...
+	puffmom (relief): Thank you kind one!!
+	puffmom (neutral): You're welcome to be an honary child of mine anytime!!
+	finn (neutral): Yippee! \
+I think I'm good though, thanks...
+	puffmom (neutral): Speaking of which, where are your parents?
+	puffmom (surprised): Shouldn't a little fishie like you not be swimming around all alone?
+	finn (sad): Oh actually, about that...
+	puffmom (surprised): AHHH ARE THEY DEADSORRY,...
+	finn (neutral): Nonono, it's just that I'm not actually a fish, I'm a human. 
+	finn (confused): I got lost swimming in this lake or something and went fish mode
+	puffmom (neutral): Oh wow... haha that's nice sweetie...
+	puffmom (neutral): Let's get back to Coral City and we'll find your parents ok?
+	finn (neutral): no im not lying i just have crazy lore
+	puffmom (surprised): WHAT !! that sounds like some cool lore shit that I could learn more about when I play the full game releasing later this academic year!!
+	finn (elated): yup pretty much haha. stay tuned !!
+	set {PuffMom.after} = true

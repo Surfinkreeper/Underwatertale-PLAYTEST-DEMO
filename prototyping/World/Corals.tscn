@@ -1,0 +1,120 @@
+[gd_scene load_steps=28 format=3 uid="uid://dbfqdjvg4dow3"]
+
+[ext_resource type="PackedScene" uid="uid://c7vd3m626efy7" path="res://prototyping/World/Coral Scenes/pink_1.tscn" id="1_g14pv"]
+[ext_resource type="PackedScene" uid="uid://26nm3x0si6u3" path="res://prototyping/World/Coral Scenes/pink_2.tscn" id="2_pft4v"]
+[ext_resource type="PackedScene" uid="uid://do675l8mq23nt" path="res://prototyping/World/Coral Scenes/pink_3.tscn" id="3_jshkv"]
+[ext_resource type="PackedScene" uid="uid://dk62pq26lltre" path="res://prototyping/World/Coral Scenes/pink_4.tscn" id="4_ywapq"]
+[ext_resource type="PackedScene" uid="uid://chf33v0w5b50o" path="res://prototyping/World/Coral Scenes/pink_5.tscn" id="5_q5huv"]
+[ext_resource type="PackedScene" uid="uid://bql6vvvajrscw" path="res://prototyping/World/Coral Scenes/pink_6.tscn" id="6_1du2m"]
+[ext_resource type="PackedScene" uid="uid://bitycejw81l5s" path="res://prototyping/World/Coral Scenes/pink_7.tscn" id="7_47ibe"]
+[ext_resource type="PackedScene" uid="uid://dr6kc25u18ikx" path="res://prototyping/World/Coral Scenes/pink_8.tscn" id="8_xhdq6"]
+[ext_resource type="PackedScene" uid="uid://s2353o5fawxs" path="res://prototyping/World/Coral Scenes/yellow_1.tscn" id="9_esa4m"]
+[ext_resource type="PackedScene" uid="uid://d4lo6kb72df6w" path="res://prototyping/World/Coral Scenes/yellow_2.tscn" id="10_2a8h2"]
+[ext_resource type="PackedScene" uid="uid://dsr1ge4g01nkp" path="res://prototyping/World/Coral Scenes/yellow_3.tscn" id="11_yxdpr"]
+[ext_resource type="PackedScene" uid="uid://bsr8b1wqghqi" path="res://prototyping/World/Coral Scenes/yellow_4.tscn" id="12_s27ds"]
+[ext_resource type="PackedScene" uid="uid://w4l3wk0s3prx" path="res://prototyping/World/Coral Scenes/yellow_5.tscn" id="13_2sl6m"]
+[ext_resource type="PackedScene" uid="uid://bai2cqmxgiqkd" path="res://prototyping/World/Coral Scenes/yellow_6.tscn" id="14_561yj"]
+[ext_resource type="PackedScene" uid="uid://dvv6o7c885qos" path="res://prototyping/World/Coral Scenes/yellow_7.tscn" id="15_m14v3"]
+[ext_resource type="PackedScene" uid="uid://dgoc7sbf2vuag" path="res://prototyping/World/Coral Scenes/yellow_8.tscn" id="16_1siib"]
+[ext_resource type="PackedScene" uid="uid://dbrrxxhrx87m1" path="res://prototyping/World/Coral Scenes/blue_1.tscn" id="17_7vxms"]
+[ext_resource type="PackedScene" uid="uid://dvwmfvx54q3ra" path="res://prototyping/World/Coral Scenes/blue_2.tscn" id="18_cj1ka"]
+[ext_resource type="PackedScene" uid="uid://c7vccyruwq26s" path="res://prototyping/World/Coral Scenes/blue_3.tscn" id="19_10nc4"]
+[ext_resource type="PackedScene" uid="uid://fc1ombf7fnns" path="res://prototyping/World/Coral Scenes/blue_4.tscn" id="20_7jr77"]
+[ext_resource type="PackedScene" uid="uid://qrcskg7m41hy" path="res://prototyping/World/Coral Scenes/blue_5.tscn" id="21_epabh"]
+[ext_resource type="PackedScene" uid="uid://b7iundgphp88g" path="res://prototyping/World/Coral Scenes/blue_6.tscn" id="22_mcn5g"]
+[ext_resource type="PackedScene" uid="uid://bddkt2hk53mww" path="res://prototyping/World/Coral Scenes/red_1.tscn" id="23_efiul"]
+[ext_resource type="PackedScene" uid="uid://dqt8748brj85g" path="res://prototyping/World/Coral Scenes/red_2.tscn" id="24_gfd0v"]
+[ext_resource type="PackedScene" uid="uid://cbcwoydi2wrvw" path="res://prototyping/World/Coral Scenes/red_3.tscn" id="25_se8vd"]
+[ext_resource type="PackedScene" uid="uid://ef53bilpevmy" path="res://prototyping/World/Coral Scenes/red_4.tscn" id="26_0soht"]
+[ext_resource type="PackedScene" uid="uid://dleacnjnavja2" path="res://prototyping/World/Coral Scenes/red_5.tscn" id="27_bnc6r"]
+
+[node name="Corals" type="Node3D"]
+
+[node name="Pink Coral" type="Node3D" parent="."]
+
+[node name="Pink1" parent="Pink Coral" instance=ExtResource("1_g14pv")]
+visible = false
+
+[node name="Pink2" parent="Pink Coral" instance=ExtResource("2_pft4v")]
+visible = false
+
+[node name="Pink3" parent="Pink Coral" instance=ExtResource("3_jshkv")]
+visible = false
+
+[node name="Pink4" parent="Pink Coral" instance=ExtResource("4_ywapq")]
+visible = false
+
+[node name="Pink5" parent="Pink Coral" instance=ExtResource("5_q5huv")]
+visible = false
+
+[node name="Pink6" parent="Pink Coral" instance=ExtResource("6_1du2m")]
+visible = false
+
+[node name="Pink7" parent="Pink Coral" instance=ExtResource("7_47ibe")]
+visible = false
+
+[node name="Pink8" parent="Pink Coral" instance=ExtResource("8_xhdq6")]
+visible = false
+
+[node name="Yellow Coral" type="Node3D" parent="."]
+
+[node name="Yellow1" parent="Yellow Coral" instance=ExtResource("9_esa4m")]
+visible = false
+
+[node name="Yellow2" parent="Yellow Coral" instance=ExtResource("10_2a8h2")]
+visible = false
+
+[node name="Yellow3" parent="Yellow Coral" instance=ExtResource("11_yxdpr")]
+visible = false
+
+[node name="Yellow4" parent="Yellow Coral" instance=ExtResource("12_s27ds")]
+visible = false
+
+[node name="Yellow5" parent="Yellow Coral" instance=ExtResource("13_2sl6m")]
+visible = false
+
+[node name="Yellow6" parent="Yellow Coral" instance=ExtResource("14_561yj")]
+visible = false
+
+[node name="Yellow7" parent="Yellow Coral" instance=ExtResource("15_m14v3")]
+visible = false
+
+[node name="Yellow8" parent="Yellow Coral" instance=ExtResource("16_1siib")]
+visible = false
+
+[node name="Blue Coral" type="Node3D" parent="."]
+
+[node name="Blue1" parent="Blue Coral" instance=ExtResource("17_7vxms")]
+visible = false
+
+[node name="Blue2" parent="Blue Coral" instance=ExtResource("18_cj1ka")]
+visible = false
+
+[node name="Blue3" parent="Blue Coral" instance=ExtResource("19_10nc4")]
+visible = false
+
+[node name="Blue4" parent="Blue Coral" instance=ExtResource("20_7jr77")]
+visible = false
+
+[node name="Blue5" parent="Blue Coral" instance=ExtResource("21_epabh")]
+visible = false
+
+[node name="Blue6" parent="Blue Coral" instance=ExtResource("22_mcn5g")]
+visible = false
+
+[node name="Red Coral" type="Node3D" parent="."]
+
+[node name="Red1" parent="Red Coral" instance=ExtResource("23_efiul")]
+visible = false
+
+[node name="Red2" parent="Red Coral" instance=ExtResource("24_gfd0v")]
+visible = false
+
+[node name="Red3" parent="Red Coral" instance=ExtResource("25_se8vd")]
+visible = false
+
+[node name="Red4" parent="Red Coral" instance=ExtResource("26_0soht")]
+visible = false
+
+[node name="Red5" parent="Red Coral" instance=ExtResource("27_bnc6r")]
+visible = false

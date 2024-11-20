@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://qrcskg7m41hy"]
+
+[ext_resource type="Texture2D" uid="uid://b7bowo2n04qpx" path="res://prototyping/art/Blue Coral/Blue5.PNG" id="1_egwyf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7hrnq"]
+size = Vector3(8.56, 9.75, 1.42)
+
+[node name="Blue5" type="Sprite3D"]
+transform = Transform3D(0.17, 0, 0, 0, 0.17, 0, 0, 0, 0.17, 0, 0, 0)
+offset = Vector2(0, 370)
+alpha_cut = 2
+texture = ExtResource("1_egwyf")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.62135, 0)
+shape = SubResource("BoxShape3D_7hrnq")

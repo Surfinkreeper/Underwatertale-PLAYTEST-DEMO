@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://brvwohxaul2aq"]
+
+[ext_resource type="Script" path="res://prototyping/resources/mesh_generator.gd" id="1_82m83"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_m3irt"]
+
+[node name="MeshGenerator" type="MeshInstance3D"]
+mesh = SubResource("ArrayMesh_m3irt")
+script = ExtResource("1_82m83")

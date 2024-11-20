@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://chf33v0w5b50o"]
+
+[ext_resource type="Texture2D" uid="uid://ors3iduyoqjn" path="res://prototyping/art/Pink Coral/Pink5.PNG" id="1_6selk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8w5j3"]
+size = Vector3(18.86, 19.75, 1)
+
+[node name="Pink5" type="Sprite3D"]
+transform = Transform3D(0.17, 0, 0, 0, 0.17, 0, 0, 0, 0.17, 0, 0, 0)
+offset = Vector2(0, 1400)
+alpha_cut = 2
+texture = ExtResource("1_6selk")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.72506, 11.8498, 0)
+shape = SubResource("BoxShape3D_8w5j3")

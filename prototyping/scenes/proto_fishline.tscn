@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfw1tbj8c3rqs"]
+
+[ext_resource type="Curve" uid="uid://cqcilq5xcti1g" path="res://prototyping/src/misc/proto_fish_curve.tres" id="1_xh1g4"]
+[ext_resource type="Script" path="res://prototyping/src/proto_fish.gd" id="2_c8xvg"]
+
+[node name="FishLine" type="Line2D"]
+position = Vector2(2.08165e-12, 2.08165e-12)
+points = PackedVector2Array(2.08165e-12, 2.08165e-12, 30, 2.08165e-12, 60, 2.08165e-12, 90, 2.08165e-12, 120, 2.08165e-12, 150, 2.08165e-12, 180, 2.08165e-12, 210, 2.08165e-12, 240, 2.08165e-12, 270, 2.08165e-12, 300, 2.08165e-12, 330, 2.08165e-12, 360, 2.08165e-12, 390, 2.08165e-12, 420, 2.08165e-12, 450, 2.08165e-12)
+width_curve = ExtResource("1_xh1g4")
+default_color = Color(0.427451, 0.427451, 1, 1)
+texture_mode = 2
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+sharp_limit = 20.0
+script = ExtResource("2_c8xvg")
+seg_length = 30
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+gravity_scale = 1.66533e-16
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

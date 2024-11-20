@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bitycejw81l5s"]
+
+[ext_resource type="Texture2D" uid="uid://ccvailhvfkajd" path="res://prototyping/art/Pink Coral/Pink7.PNG" id="1_odw3x"]
+
+[node name="Pink7" type="Sprite3D"]
+transform = Transform3D(0.17, 0, 0, 0, 0.17, 0, 0, 0, 0.17, 0, 0, 0)
+offset = Vector2(125, 1460)
+alpha_cut = 2
+texture = ExtResource("1_odw3x")

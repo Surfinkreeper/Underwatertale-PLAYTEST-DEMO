@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbrrxxhrx87m1"]
+
+[ext_resource type="Texture2D" uid="uid://ckcsjqcakm3l2" path="res://prototyping/art/Blue Coral/Blue1.PNG" id="1_dce8j"]
+
+[node name="Blue1" type="Sprite3D"]
+transform = Transform3D(0.17, 0, 0, 0, 0.17, 0, 0, 0, 0.17, 0, 0, 0)
+offset = Vector2(-50, 1230)
+alpha_cut = 2
+texture = ExtResource("1_dce8j")

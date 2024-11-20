@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cc7fbr4sjl0k2"
+path="res://.godot/imported/proto_fish3d.obj-e7ed365a34c16054badf48a4bbd489a6.mesh"
+
+[deps]
+
+files=["res://.godot/imported/proto_fish3d.obj-e7ed365a34c16054badf48a4bbd489a6.mesh"]
+
+source_file="res://prototyping/art/proto_fish3d.obj"
+dest_files=["res://.godot/imported/proto_fish3d.obj-e7ed365a34c16054badf48a4bbd489a6.mesh", "res://.godot/imported/proto_fish3d.obj-e7ed365a34c16054badf48a4bbd489a6.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
